@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{b365d612-d995-46ea-ae7f-53d8c49eba75}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{477f3108-3095-4f8b-8363-98d6e3de9ca8}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{b3e66a04-944c-4c39-aada-6a3722464f16}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;png;manifest</Extensions>
+    </Filter>
+    <Filter Include="resource\iphone">
+      <UniqueIdentifier>{7019dc0b-5a07-49da-ac24-68e4a3d7e423}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\fonts">
+      <UniqueIdentifier>{f7aca91e-fd1f-45a8-ae0a-146dab3e8014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\ipadhd">
+      <UniqueIdentifier>{41fa24de-9ba2-441a-97e7-4d7ebf3bf3c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\stringResources">
+      <UniqueIdentifier>{446a664e-38f6-4ca5-813f-fe6862f4ed39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\stringResources\0">
+      <UniqueIdentifier>{174a1bc6-0fc1-4e07-9bf1-d362eca1a9ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\stringResources\1">
+      <UniqueIdentifier>{bcb5131d-a485-4b0c-a5d5-735ba100fba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\engine">
+      <UniqueIdentifier>{cdde3c49-c01f-4bfd-b5e5-255a4429c85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine">
+      <UniqueIdentifier>{88761bba-8dbe-4438-a9a3-3f5bdd1245f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\institution">
+      <UniqueIdentifier>{07df56a3-fd15-4692-9c82-d82d75521ae9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\datatypes">
+      <UniqueIdentifier>{80ae4e38-dab9-4d38-9e77-d7d3934c7b6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\datatypes">
+      <UniqueIdentifier>{0bca5d2e-2f04-440d-aa82-c2691d34d347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\iphone5">
+      <UniqueIdentifier>{6765581c-4768-4de0-9139-59cb773159bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\models">
+      <UniqueIdentifier>{c4c464ef-8243-44c8-99fb-2fd4a7916207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\models">
+      <UniqueIdentifier>{19d936f2-e42c-49e7-9ba2-2edd6937a12f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\institution">
+      <UniqueIdentifier>{8bcddbfe-6a44-48bc-b5a3-d0313ca0f0bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\TasteTheSpear.ico">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\CloseSelected.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\CloseNormal.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\HelloWorld.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\iphone\CloseNormal.png">
+      <Filter>resource\iphone</Filter>
+    </None>
+    <None Include="..\Resources\iphone\CloseSelected.png">
+      <Filter>resource\iphone</Filter>
+    </None>
+    <None Include="..\Resources\iphone\HelloWorld.png">
+      <Filter>resource\iphone</Filter>
+    </None>
+    <None Include="..\Resources\ipad\CloseNormal.png">
+      <Filter>resource\iphone5</Filter>
+    </None>
+    <None Include="..\Resources\ipad\CloseSelected.png">
+      <Filter>resource\iphone5</Filter>
+    </None>
+    <None Include="..\Resources\ipad\HelloWorld.png">
+      <Filter>resource\iphone5</Filter>
+    </None>
+    <None Include="..\Resources\fonts\arial.ttf">
+      <Filter>resource\fonts</Filter>
+    </None>
+    <None Include="..\Resources\fonts\Marker Felt.ttf">
+      <Filter>resource\fonts</Filter>
+    </None>
+    <None Include="..\Resources\ipadhd\CloseNormal.png">
+      <Filter>resource\ipadhd</Filter>
+    </None>
+    <None Include="..\Resources\ipadhd\CloseSelected.png">
+      <Filter>resource\ipadhd</Filter>
+    </None>
+    <None Include="..\Resources\ipadhd\HelloWorld.png">
+      <Filter>resource\ipadhd</Filter>
+    </None>
+    <None Include="..\Resources\fighter.png">
+      <Filter>resource\iphone</Filter>
+    </None>
+    <None Include="readme.txt" />
+    <None Include="models_readme.txt">
+      <Filter>source\models</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TasteTheSpear.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>include\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppMacros.h">
+      <Filter>include\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>include\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingLayer.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingScene.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="myLib.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLoadingLayer.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="PreloadedScene.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="Obsolete_IBroadcaster.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="Obsolete_IHasProgress.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="Obsolete_IListener.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="Obsolete_IHasAnyKeyToContinue.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="Obsolete_IProgressBroadcaster.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Obsolete_IProgressListener.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLayerOpacity.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="TutsauLayer.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="IHasProgress.h">
+      <Filter>include\institution</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressEntity.h">
+      <Filter>include\datatypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="Fighter.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEventsMacros.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="FightingUnitType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="MissileType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectTypesLoader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject_Runtime.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="FightingUnit_Runtime.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero_Runtime.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="Missile_Runtime.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDirector.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectPrecompileHeader.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fighter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingLayer.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingScene.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="myLib.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLoadingLayer.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="PreloadedScene.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="Obsolete_IBroadcaster.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="Obsolete_IHasProgress.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="Obsolete_IListener.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="Obsolete_IProgressBroadcaster.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Obsolete_IProgressListener.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Obsolete_IHasAnyKeyToContinue.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLayerOpacity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="IHasProgress.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="TutsauLayer.cpp">
+      <Filter>source\institution</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressEntity.cpp">
+      <Filter>source\datatypes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="FightingUnitType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="MissileType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectTypesLoader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="FightingUnit_Runtime.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject_Runtime.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero_Runtime.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="Missile_Runtime.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDirector.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

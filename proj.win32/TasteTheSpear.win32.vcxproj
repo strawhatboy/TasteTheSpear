@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2EB9A113-91C4-4731-B534-F1A8F1452F12}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\Classes;$(SolutionDir)cocos2dx;$(SolutionDir)cocos2dx\include;$(SolutionDir)cocos2dx\kazmath\include;$(SolutionDir)cocos2dx\platform\win32;$(SolutionDir)cocos2dx\platform\third_party\win32;$(SolutionDir)cocos2dx\platform\third_party\win32\OGLES;$(SolutionDir)external;$(SolutionDir)extensions;$(SolutionDir)scripting\lua\tolua;$(SolutionDir)scripting\lua\cocos2dx_support;$(SolutionDir)scripting\lua\luajit;$(SolutionDir)scripting\lua\lua;$(SolutionDir)scripting\lua;$(SolutionDir)CocosDenshion\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS_DEBUG;COCOS2D_DEBUG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libExtensions.lib;libcocos2d.lib;opengl32.lib;glew32.lib;libBox2d.lib;libCocosDenshion.lib;liblua.lib;lua51.lib;pthreadVCE2.lib;websockets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>TasteTheSpear.h</HeaderFileName>
+      <InterfaceIdentifierFileName>TasteTheSpear_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>TasteTheSpear_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/TasteTheSpear.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\Classes;$(SolutionDir)cocos2dx;$(SolutionDir)cocos2dx\include;$(SolutionDir)cocos2dx\kazmath\include;$(SolutionDir)cocos2dx\platform\win32;$(SolutionDir)cocos2dx\platform\third_party\win32;$(SolutionDir)cocos2dx\platform\third_party\win32\OGLES;$(SolutionDir)external;$(SolutionDir)CocosDenshion\include;%(AdditionalIncludeDirectories);$(SolutionDir)extensions</AdditionalIncludeDirectories>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGSNDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libcocos2d.lib;opengl32.lib;glew32.lib;libBox2d.lib;libCocosDenshion.lib;libExtensions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>TasteTheSpear.h</HeaderFileName>
+      <InterfaceIdentifierFileName>TasteTheSpear_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>TasteTheSpear_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/TasteTheSpear.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\Resources\CloseNormal.png" />
+    <None Include="..\Resources\CloseSelected.png" />
+    <None Include="..\Resources\fighter.png" />
+    <None Include="..\Resources\fonts\arial.ttf" />
+    <None Include="..\Resources\fonts\Marker Felt.ttf" />
+    <None Include="..\Resources\HelloWorld.png" />
+    <None Include="..\Resources\ipadhd\CloseNormal.png" />
+    <None Include="..\Resources\ipadhd\CloseSelected.png" />
+    <None Include="..\Resources\ipadhd\HelloWorld.png" />
+    <None Include="..\Resources\ipad\CloseNormal.png" />
+    <None Include="..\Resources\ipad\CloseSelected.png" />
+    <None Include="..\Resources\ipad\HelloWorld.png" />
+    <None Include="..\Resources\iphone\CloseNormal.png" />
+    <None Include="..\Resources\iphone\CloseSelected.png" />
+    <None Include="..\Resources\iphone\HelloWorld.png" />
+    <None Include="models_readme.txt" />
+    <None Include="readme.txt" />
+    <None Include="res\TasteTheSpear.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TasteTheSpear.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AppMacros.h" />
+    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="Fighter.h" />
+    <ClInclude Include="FightingUnit_Runtime.h" />
+    <ClInclude Include="FightingUnitType.h" />
+    <ClInclude Include="GameDirector.h" />
+    <ClInclude Include="GameEventsMacros.h" />
+    <ClInclude Include="GameObjectPrecompileHeader.h" />
+    <ClInclude Include="GameObjectType.h" />
+    <ClInclude Include="GameObjectTypesLoader.h" />
+    <ClInclude Include="GameObject_Runtime.h" />
+    <ClInclude Include="HeroType.h" />
+    <ClInclude Include="Hero_Runtime.h" />
+    <ClInclude Include="IHasProgress.h" />
+    <ClInclude Include="MenuLayer.h" />
+    <ClInclude Include="MissileType.h" />
+    <ClInclude Include="Missile_Runtime.h" />
+    <ClInclude Include="MyLayerOpacity.h" />
+    <ClInclude Include="Obsolete_IBroadcaster.h" />
+    <ClInclude Include="Obsolete_IHasAnyKeyToContinue.h" />
+    <ClInclude Include="Obsolete_IHasProgress.h" />
+    <ClInclude Include="Obsolete_IListener.h" />
+    <ClInclude Include="Obsolete_IProgressBroadcaster.h" />
+    <ClInclude Include="Obsolete_IProgressListener.h" />
+    <ClInclude Include="LoadingScene.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="MenuScene.h" />
+    <ClInclude Include="myLib.h" />
+    <ClInclude Include="LoadingLayer.h" />
+    <ClInclude Include="MyLoadingLayer.h" />
+    <ClInclude Include="PreloadedScene.h" />
+    <ClInclude Include="ProgressEntity.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="TutsauLayer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="FightingUnit_Runtime.cpp" />
+    <ClCompile Include="FightingUnitType.cpp" />
+    <ClCompile Include="GameDirector.cpp" />
+    <ClCompile Include="GameObjectType.cpp" />
+    <ClCompile Include="GameObjectTypesLoader.cpp" />
+    <ClCompile Include="GameObject_Runtime.cpp" />
+    <ClCompile Include="HeroType.cpp" />
+    <ClCompile Include="Hero_Runtime.cpp" />
+    <ClCompile Include="IHasProgress.cpp" />
+    <ClCompile Include="MenuLayer.cpp" />
+    <ClCompile Include="MissileType.cpp" />
+    <ClCompile Include="Missile_Runtime.cpp" />
+    <ClCompile Include="MyLayerOpacity.cpp" />
+    <ClCompile Include="Obsolete_IBroadcaster.cpp" />
+    <ClCompile Include="Obsolete_IHasAnyKeyToContinue.cpp" />
+    <ClCompile Include="Obsolete_IHasProgress.cpp" />
+    <ClCompile Include="Obsolete_IListener.cpp" />
+    <ClCompile Include="Obsolete_IProgressBroadcaster.cpp" />
+    <ClCompile Include="Obsolete_IProgressListener.cpp" />
+    <ClCompile Include="LoadingScene.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuScene.cpp" />
+    <ClCompile Include="myLib.cpp" />
+    <ClCompile Include="LoadingLayer.cpp" />
+    <ClCompile Include="MyLoadingLayer.cpp" />
+    <ClCompile Include="PreloadedScene.cpp" />
+    <ClCompile Include="ProgressEntity.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="TutsauLayer.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!-- configuration file for Levels -->
+<dict>
+	<key>textures</key>
+	<array>
+		<dict>
+			<key>typeid</key>
+			<string>T001</string>
+			<key>name</key>
+			<string>SPEAR</string>
+			<key>description</key>
+			<string>SPEAR's texture</string>
+			<key>textureFile</key>
+			<string>texture/SPEAR.png</string>
+			<key>plistFile</key>
+			<string>texture/SPEAR.plist</string>
+			<key>animations</key>
+			<array>
+				<dict>
+					<key>name</key>
+					<string>standby</string>
+					<key>frames</key>
+					<array>
+						<string>SPEAR_standby_001.png</string>
+						<string>SPEAR_standby_002.png</string>
+						<string>SPEAR_standby_003.png</string>
+						<string>SPEAR_standby_002.png</string>
+						<string>SPEAR_standby_001.png</string>
+					</array>
+				</dict>
+				<dict>
+					<key>name</key>
+					<string>death</string>
+					<key>frames</key>
+					<array>
+						<string>SPEAR_death_001.png</string>
+						<string>SPEAR_death_002.png</string>
+						<string>SPEAR_death_003.png</string>
+						<string>SPEAR_death_004.png</string>
+						<string>SPEAR_death_005.png</string>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		
+		<!-- Armature -->
+		<!-- There'll be two type of texture, this one is in the cocos2d engine called armature which 
+		can be generated in cocoStudio. in cpp code, we will judge by valueForKey("ExportPNG") is nothing ##DRAFT##-->
+		<dict>
+			<key>typeid</key>
+			<string>T002</string>
+			<key>name</key>
+			<string>ENEMY0</string>
+			<key>description</key>
+			<string>ENEMY0's texture</string>
+			<key>ExportPNG</key>
+			<string>ENEMY0.png</string>
+			<key>ExportPlist</key>
+			<string>ENEMY0.plist</string>
+			<key>ExportJson</key>
+			<string>ENEMY0.ExportJson</string>
+		</dict>
+	</array>
+</dict>
+</plist>
