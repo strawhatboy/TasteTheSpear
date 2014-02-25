@@ -1,6 +1,6 @@
 #include "MissileType.h"
 
-MissileType::MissileType(CCDictionary* dict) : GameObjectType(dict)
+MissileType::MissileType(CCDictionary* dict) : TexturedGameObjectType(dict)
 {
 }
 

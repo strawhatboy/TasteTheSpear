@@ -42,11 +42,11 @@ class TutsauLayer :
 	public CCLayerColor
 {
 private:
-	const char* m_pszImageFilePath;
+	string m_imageFilePath;
 	bool m_bIsInitWithMsgID;
 
-	const char* m_pszMsg;
-	const char* m_pszMsgType;
+	string m_msg;
+	string m_msgType;
 
 	int m_nMsgID;
 	bool m_bForced;

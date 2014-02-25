@@ -1,10 +1,10 @@
 ﻿#include "TutsauLayer.h"
 TutsauLayer::TutsauLayer(void){}
 TutsauLayer::TutsauLayer(const char* msg)
-	: m_bIsInitWithMsgID(false), m_pszMsg(msg){}
+	: m_bIsInitWithMsgID(false), m_msg(msg){}
 	
 TutsauLayer::TutsauLayer(const char* msgType, const char* msg)
-	: m_bIsInitWithMsgID(false), m_pszMsg(msg), m_pszMsgType(msgType)
+	: m_bIsInitWithMsgID(false), m_msg(msg), m_msgType(msgType)
 	{}
 	
 TutsauLayer::TutsauLayer(int msgID)
@@ -28,7 +28,7 @@ bool TutsauLayer::init()
 	bool bRet = false;
 	do
 	{
-		CC_BREAK_IF(!this->initWithColor(ccc4(255, 0, 0, 50)));
+		CC_BREAK_IF(!this->initWithColor(ccc4(0, 0, 0, 50)));
 		this->setTouchEnabled(true);
 		this->setTouchPriority(TOUCH_PRIORITY_TUTSAULAYER);
 		if (m_bIsInitWithMsgID)
@@ -54,13 +54,15 @@ bool TutsauLayer::init()
 			//this->setContentSize(visibleSize);
 			//this->setPosition(origin);
 			
-			CCSprite* sprite = CCSprite::create(CCString::createWithFormat("%s/%s%s", FOLDER_TUTSAU, this->m_pszMsgType, STR_TUTSAU_FILE_SUFFIX)->getCString());
+			CCSprite* sprite = CCSprite::create(CCString::createWithFormat("%s/%s%s", FOLDER_TUTSAU, this->m_msgType.c_str(), STR_TUTSAU_FILE_SUFFIX)->getCString());
 			// sprite and the words should occupy 4/5 of the width.
 			auto childLayerContentWidth = 0.8 * visibleSize.width;
 			auto spriteSize = sprite->getContentSize();
 			auto wordsWidth = childLayerContentWidth - spriteSize.width;
-			CCLabelTTF* label = CCLabelTTF::create(this->m_pszMsg, STR_TUTSAU_FONTS, FONT_SIZE_TUTSAU, CCSizeMake(wordsWidth, 0),
-				CCTextAlignment::kCCTextAlignmentLeft, CCVerticalTextAlignment::kCCVerticalTextAlignmentTop);
+			//CCLabelTTF* label = CCLabelTTF::create(this->m_pszMsg, STR_TUTSAU_FONTS, FONT_SIZE_TUTSAU, CCSizeMake(wordsWidth, 0),
+			//	CCTextAlignment::kCCTextAlignmentLeft, CCVerticalTextAlignment::kCCVerticalTextAlignmentTop);
+			CCLabelTTF* label = CCLabelTTF::create(this->m_msg.c_str(), STR_TUTSAU_FONTS, FONT_SIZE_TUTSAU, CCSizeMake(wordsWidth, 0),
+				kCCTextAlignmentLeft, kCCVerticalTextAlignmentTop);
 			label->setColor(ccc3(0, 0, 0));
 			auto childLayerContentHeight = MAX(spriteSize.height, label->getContentSize().height) + 20;
 

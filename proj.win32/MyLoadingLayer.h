@@ -12,7 +12,7 @@ class MyLoadingLayer :
 {
 private:
 	bool m_bIsDefaultLoadingImage;
-	const char* m_pszLoadingImagePath;
+	string m_pszLoadingImagePath;
 public:
 	virtual bool init(void);
 	MyLoadingLayer(void);

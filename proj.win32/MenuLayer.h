@@ -2,6 +2,8 @@
 #include "cocos2d.h"
 #include "GameObjectTypesLoader.h"
 #include "CCLuaEngine.h"
+#include "SceneManager.h"
+#include "DistrictSelectScene.h"
 
 #define MENU_CONFIG_FILE_NAME "menu_config.plist"
 #define MENU_ITEMS_FILE_NAME "menu_items.plist"

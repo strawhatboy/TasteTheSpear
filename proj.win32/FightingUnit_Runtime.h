@@ -3,11 +3,11 @@
 #include "cocos2d.h"
 #include "myLib.h"
 #include "FightingUnitType.h"
-#include "GameObject_Runtime.h"
+#include "TexturedGameObject_Runtime.h"
 
 
 class FightingUnit_Runtime
-	: public GameObject_Runtime
+	: public TexturedGameObject_Runtime
 {
 protected:
 	CC_SYNTHESIZE(float, m_Life_Runtime, CurrentLife);

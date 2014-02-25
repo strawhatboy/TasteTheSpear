@@ -129,5 +129,4 @@ CCTexture2D* getEmptyWhiteTexture()
 	}
 
 	return texture;
-	
 }

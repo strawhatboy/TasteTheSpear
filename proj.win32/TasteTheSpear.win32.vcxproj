@@ -37,7 +37,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir>$(Configuration).win32\</IntDir>
-    <LinkIncremental>true</LinkIncremental>
+    <EmbedManifest>true</EmbedManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
@@ -148,6 +148,9 @@
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="DistrictSelectLayer.h" />
+    <ClInclude Include="DistrictSelectScene.h" />
+    <ClInclude Include="DistrictType.h" />
     <ClInclude Include="Fighter.h" />
     <ClInclude Include="FightingUnit_Runtime.h" />
     <ClInclude Include="FightingUnitType.h" />
@@ -160,6 +163,7 @@
     <ClInclude Include="HeroType.h" />
     <ClInclude Include="Hero_Runtime.h" />
     <ClInclude Include="IHasProgress.h" />
+    <ClInclude Include="LevelType.h" />
     <ClInclude Include="MenuLayer.h" />
     <ClInclude Include="MissileType.h" />
     <ClInclude Include="Missile_Runtime.h" />
@@ -180,11 +184,19 @@
     <ClInclude Include="ProgressEntity.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScrollLayer.h" />
+    <ClInclude Include="StringResourceType.h" />
+    <ClInclude Include="TexturedGameObjectType.h" />
+    <ClInclude Include="TexturedGameObject_Runtime.h" />
+    <ClInclude Include="TextureType.h" />
     <ClInclude Include="TutsauLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="DistrictSelectLayer.cpp" />
+    <ClCompile Include="DistrictSelectScene.cpp" />
+    <ClCompile Include="DistrictType.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FightingUnit_Runtime.cpp" />
     <ClCompile Include="FightingUnitType.cpp" />
@@ -195,6 +207,7 @@
     <ClCompile Include="HeroType.cpp" />
     <ClCompile Include="Hero_Runtime.cpp" />
     <ClCompile Include="IHasProgress.cpp" />
+    <ClCompile Include="LevelType.cpp" />
     <ClCompile Include="MenuLayer.cpp" />
     <ClCompile Include="MissileType.cpp" />
     <ClCompile Include="Missile_Runtime.cpp" />
@@ -214,6 +227,11 @@
     <ClCompile Include="PreloadedScene.cpp" />
     <ClCompile Include="ProgressEntity.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScrollLayer.cpp" />
+    <ClCompile Include="StringResourceType.cpp" />
+    <ClCompile Include="TexturedGameObjectType.cpp" />
+    <ClCompile Include="TexturedGameObject_Runtime.cpp" />
+    <ClCompile Include="TextureType.cpp" />
     <ClCompile Include="TutsauLayer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

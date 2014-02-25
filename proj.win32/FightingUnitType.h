@@ -1,5 +1,5 @@
 #pragma once
-#include "gameobjecttype.h"
+#include "texturedgameobjecttype.h"
 
 #define STR_FIGHTINGUNIT_LIFE "life"
 #define STR_FIGHTINGUNIT_ATTACK "attack"
@@ -13,7 +13,7 @@
 #define STR_FIGHTINGUNIT_FIRERATE_DELTA "fireRateDelta"
 
 class FightingUnitType :
-	public GameObjectType
+	public TexturedGameObjectType
 {
 	CC_SYNTHESIZE_READONLY(float, m_Life, Life);
 	CC_SYNTHESIZE_READONLY(float, m_Attack, Attack);

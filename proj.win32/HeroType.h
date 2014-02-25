@@ -14,7 +14,7 @@ class HeroType
 public:
 	~HeroType(void);
 	
-	// returns HERO, UNIT, MISSILE, BOSS
+	// returns HERO, UNIT, MISSILE, LEVEL, DISTRICT
 	virtual const char* getObjectType(void) const
 	{
 		return STR_HERO;

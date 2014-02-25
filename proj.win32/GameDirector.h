@@ -1,6 +1,7 @@
 #pragma once
 #include "myLib.h"
 #include "cocos2d.h"
+#include "GameObjectTypesLoader.h"
 
 enum GameState
 {
@@ -17,6 +18,8 @@ class GameDirector
 
 public:
 	~GameDirector(void);
+
+	string getUIStringByID(int nID);
 
 	CC_SHARED_CREATE_FUNC(GameDirector);
 };

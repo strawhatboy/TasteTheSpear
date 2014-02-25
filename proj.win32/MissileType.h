@@ -1,9 +1,9 @@
 #pragma once
-#include "gameobjecttype.h"
+#include "texturedgameobjecttype.h"
 #include "cocos2d.h"
 
 class MissileType :
-	public GameObjectType
+	public TexturedGameObjectType
 {
 public:
 	~MissileType(void);

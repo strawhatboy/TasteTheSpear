@@ -32,7 +32,7 @@ bool MyLoadingLayer::init()
 	}
 	else
 	{
-		loadingImageFile = this->m_pszLoadingImagePath;
+		loadingImageFile = this->m_pszLoadingImagePath.c_str();
 	}
 
 	auto point_center = ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y);
@@ -50,7 +50,8 @@ bool MyLoadingLayer::init()
 	auto loadingBarSize = loadingBar->getContentSize();
 
 	CCProgressTimer* progressbar = CCProgressTimer::create(loadingBar);
-	progressbar->setType(CCProgressTimerType::kCCProgressTimerTypeBar);
+	//progressbar->setType(CCProgressTimerType::kCCProgressTimerTypeBar);
+	progressbar->setType(kCCProgressTimerTypeBar);
 	
 	progressbar->setScaleY(visibleSize.height / loadingBarSize.height);
 	progressbar->setBarChangeRate(ccp(0, 1));
@@ -77,14 +78,15 @@ MyLoadingLayer::MyLoadingLayer(const char* pszLoadingImagePath)
 
 MyLoadingLayer::~MyLoadingLayer(void)
 {
+
 }
 
 void MyLoadingLayer::setProgress(ProgressEntity* progress)
 {
 	CCProgressTimer* progressbar = dynamic_cast<CCProgressTimer*>(this->getChildByTag(TAG_PROGRESSBAR));
 
-	CCProgressFromTo* fromToAction = CCProgressFromTo::create(0.2, progressbar->getPercentage(),
-		progress->getFinishPercentage() * 100);
+	CCProgressFromTo* fromToAction = CCProgressFromTo::create(0.2f, progressbar->getPercentage(),
+		progress->getFinishPercentage() * 100.f);
 	progressbar->runAction(fromToAction);
 
 	//progressbar->setPercentage(progress->getFinishPercentage() * 100);

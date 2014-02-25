@@ -42,17 +42,17 @@ protected:
 	//}
 
 	// returns HERO, UNIT, MISSILE, BOSS
-	virtual const char* getObjectType(void) const
+	virtual string getObjectType(void) const
 	{
 		return m_GameObjectType->getObjectType();
 	}
 
-	virtual const char* getTypeID(void) const
+	virtual string getTypeID(void) const
 	{
 		return m_GameObjectType->getTypeID();
 	}
 
-	virtual const char* getName(void) const
+	virtual string getName(void) const
 	{
 		return m_GameObjectType->getName();
 	}

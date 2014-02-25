@@ -141,6 +141,9 @@ void MenuLayer::menuCallback(CCObject* sender)
 		CCLog("MENU_START got"); 
 		CCLog("Switch to hero selection...");
 		// switch to map scene to show levels
+
+		CCDirector::sharedDirector()->replaceScene(DistrictSelectScene::create());
+
 		break;
 	case TAG_MENU_SETTINGS:
 		CCLog("MENU_SETTINGS got");

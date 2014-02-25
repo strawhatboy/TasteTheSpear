@@ -1,10 +1,10 @@
 #pragma once
 #include "missileType.h"
-#include "gameobject_runtime.h"
+#include "TexturedGameObject_Runtime.h"
 #include "myLib.h"
 
 class Missile_Runtime :
-	public GameObject_Runtime
+	public TexturedGameObject_Runtime
 {
 public:
 	Missile_Runtime(void);

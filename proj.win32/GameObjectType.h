@@ -1,6 +1,6 @@
 #pragma once
 #include "cocos2d.h"
-
+#include "myLib.h"
 USING_NS_CC;
 
 #define STR_GAMEOBJECT_NAME "name"
@@ -14,28 +14,17 @@ USING_NS_CC;
 #define STR_HERO "HERO"
 #define STR_BOSS "BOSS"
 #define STR_MISSILE "MISSILE"
+#define STR_DISTRICT "DISTRICT"
+#define STR_LEVEL "LEVEL"
+#define STR_TEXTURE "TEXTURE"
+#define STR_STRINGRESOURCE "STRING"
 
-#define CREATE_WITH_DICT(__TYPE__)\
-public:\
-	__TYPE__(CCDictionary* dict);\
-	static __TYPE__* createWithDict(CCDictionary* dict)\
-	{\
-		__TYPE__* pRet = new __TYPE__(dict);\
-		if (pRet)\
-			return pRet;\
-		else\
-		{\
-			CC_SAFE_DELETE(pRet);\
-		}\
-		return NULL;\
-	}
-
-class GameObjectType
+class GameObjectType :
+	public CCNode
 {
-	CC_SYNTHESIZE_READONLY(const char*, m_pszName, Name);
-	CC_SYNTHESIZE_READONLY(const char*, m_pszDescription, Description);
-	CC_SYNTHESIZE_READONLY(const char*, m_pszTypeID, TypeID);
-	CC_SYNTHESIZE_READONLY(const char*, m_pszTexture, Texture);
+	CC_SYNTHESIZE_READONLY(string, m_pszName, Name);
+	CC_SYNTHESIZE_READONLY(string, m_pszDescription, Description);
+	CC_SYNTHESIZE_READONLY(string, m_pszTypeID, TypeID);
 	//CC_SYNTHESIZE_READONLY(CCArray*, m_Animations, Animations);
 
 public:

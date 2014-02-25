@@ -227,6 +227,33 @@
     <ClInclude Include="GameObjectPrecompileHeader.h">
       <Filter>include\models</Filter>
     </ClInclude>
+    <ClInclude Include="LevelType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="DistrictType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedGameObjectType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturedGameObject_Runtime.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="DistrictSelectScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="DistrictSelectLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="StringResourceType.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -324,6 +351,33 @@
     </ClCompile>
     <ClCompile Include="GameDirector.cpp">
       <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="DistrictType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedGameObjectType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureType.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturedGameObject_Runtime.cpp">
+      <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="DistrictSelectScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="DistrictSelectLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="StringResourceType.cpp">
+      <Filter>source\models</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

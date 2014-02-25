@@ -6,6 +6,7 @@
 #include <vector>
 #include <queue>
 #include "cocos2d.h"
+#include "AppMacros.h"
 
 using namespace std;
 USING_NS_CC;
@@ -75,13 +76,31 @@ static __TYPE__* create() \
 
 
 
+#define CREATE_WITH_DICT(__TYPE__)\
+public:\
+	__TYPE__(CCDictionary* dict);\
+	static __TYPE__* createWithDict(CCDictionary* dict)\
+	{\
+		__TYPE__* pRet = new __TYPE__(dict);\
+		if (pRet)\
+			return pRet;\
+		else\
+		{\
+			CC_SAFE_DELETE(pRet);\
+		}\
+		return NULL;\
+	}
+
 #define RUNTIME_OBJ_CREATE(__TYPE__, __OBJTYPE__)\
 public:\
 	static __TYPE__* createWith##__OBJTYPE__(__OBJTYPE__* type)\
 	{\
 		__TYPE__* pRet = new __TYPE__();\
 		if (pRet && pRet->initWithGameObjectType(type))\
+		{\
+			pRet->autorelease();\
 			return pRet;\
+		}\
 		else\
 		{\
 			CC_SAFE_DELETE(pRet);\
@@ -105,6 +124,29 @@ static __TYPE__* create() \
 }
 
 #define INIT_POINTER(__p) __p = NULL
+
+
+
+#define DELETE_CPP_ARRAY(__PTR_ARRAY__, __ARRAY_TYPE__) \
+	if (__PTR_ARRAY__ != NULL)\
+	{\
+		for_each(__PTR_ARRAY__->begin(), __PTR_ARRAY__->end(), [](__ARRAY_TYPE__* type)\
+		{\
+			CC_SAFE_DELETE(type);\
+		});\
+		CC_SAFE_DELETE(__PTR_ARRAY__);\
+	}
+
+#define CC_CONTINUE_IF(condition)\
+	if (condition)\
+		continue;
+
+#define CCVisibleSize CCDirector::sharedDirector()->getVisibleSize()
+#define CCVisibleOrigin CCDirector::sharedDirector()->getVisibleOrigin()
+#define CCPCenterScreen ccpAdd(CCVisibleOrigin, ccpMult(CCVisibleSize, 0.5f))
+
+// designResolutionSize is a static variable in AppMacro.h
+#define CCPDesignZero ccpMult(ccpSub(CCVisibleSize, designResolutionSize), 0.5f)
 
 //#define MAX(a, b) (((a) > (b)) ? (a) : (b))
 //#define MIN(a, b) (((a) < (b)) ? (a) : (b))
