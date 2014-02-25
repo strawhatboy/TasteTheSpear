@@ -83,11 +83,11 @@ end
 local function main()
 	cclog("LUA Main running with version: " .. _VERSION)
 	local layer = regNotification()
-	local layer2 = regNotification2()
+	local layer2 = regNotification()
 	local currentScene = CCDirector:sharedDirector():getRunningScene();
 	currentScene:addChild(layer)
 	currentScene:addChild(layer2)
 	cclog("layer added.")
 end
 
-xpcall(main, __G__TRACKBACK__);
+xpcall(main, __G__TRACKBACK__)

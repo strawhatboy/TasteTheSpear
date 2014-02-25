@@ -44,7 +44,7 @@ void HelloWorld::moveToMenuScene(float time)
 		//pDirector->replaceScene(LoadingScene::sharedInstance());
 		SceneManager::sharedInstance()->loadScene(menu);
 
-		this->unschedule(schedule_selector(HelloWorld::moveToMenuScene));
+		//this->unschedule(schedule_selector(HelloWorld::moveToMenuScene));
 		CCLOG("Another scene~");
 
 		// tutsau test
@@ -119,12 +119,19 @@ bool HelloWorld::init()
 
 	// load game type definations
 	GameObjectTypesLoader::sharedInstance()->loadAllTypes();
+	this->m_nArmaturesCount = 0;
+	this->m_nArmaturesTotalCount = GameObjectTypesLoader::sharedInstance()->loadArmaturesAsync(this, schedule_selector(HelloWorld::loadArmaturesComplete));
+
+#ifdef DEBUG
+	CCLog("Hero H001's attack is %f", GameObjectTypesLoader::sharedInstance()->getHeroTypeByID("H001")->getAttack());
+#endif
 
 	// set gamestate to MainMenu.
-	GameDirector::sharedInstance()->setGameState(GameState::MAIN_MENU);
+	//GameDirector::sharedInstance()->setGameState(GameState::MAIN_MENU);
+	GameDirector::sharedInstance()->setGameState(MAIN_MENU);
 
 	// move to main menu scene.
-	this->schedule(schedule_selector(HelloWorld::moveToMenuScene), 1.0f);
+	// this->schedule(schedule_selector(HelloWorld::moveToMenuScene), 1.0f);
     return true;
 }
 
@@ -138,4 +145,12 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
     exit(0);
 #endif
 #endif
+}
+
+void HelloWorld::loadArmaturesComplete(float dt)
+{
+	this->m_nArmaturesCount++;
+	CCLog("Armature loaded %d", this->m_nArmaturesCount);
+	if (this->m_nArmaturesCount == this->m_nArmaturesTotalCount)
+		moveToMenuScene(0);
 }

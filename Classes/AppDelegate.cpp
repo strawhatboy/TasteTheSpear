@@ -53,7 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
     pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionShowAll);
 #else
-    pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+    pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionFixedHeight);
 #endif
 
     
@@ -97,7 +97,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     pDirector->setAnimationInterval(1.0 / 60);
 
 	// init Lua Engine
-	this->InitLuaEngine();
+	this->initLuaEngine();
+
+	// init config directory
+	this->initConfigurationPath();
 
     // create a scene. it's an autorelease object
     CCScene *pScene = HelloWorld::scene();
@@ -124,7 +127,7 @@ void AppDelegate::applicationWillEnterForeground() {
     // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
 
-void AppDelegate::InitLuaEngine()
+void AppDelegate::initLuaEngine()
 {
 	// register lua engine
     CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
@@ -143,4 +146,13 @@ void AppDelegate::InitLuaEngine()
     searchPaths.push_back("script");
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
 	CCLog("Lua Engine Initialized.");
+}
+
+
+void AppDelegate::initConfigurationPath()
+{
+	std::vector<std::string> searchPaths = CCFileUtils::sharedFileUtils()->getSearchPaths();
+	searchPaths.push_back("config");
+	CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
+	CCLog("Config directory added");
 }

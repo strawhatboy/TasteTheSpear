@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!-- configuration file for strings -->
+<dict>
+	<key>stringResources</key>
+	<array>
+		<dict>
+			<key>typeid</key>
+			<string>S001</string>
+			<key>name</key>
+			<string>TutsauStrings</string>
+			<key>description</key>
+			<string>The strings for tutsau layer</string>
+			<key>strings</key>
+			<dict>
+				<key>0</key>
+				<string>小样新来的吧</string>
+				<key>1</key>
+				<string>是不是被这高清的画质，华丽的动画震撼了呢</string>
+				<key>0</key>
+				<string>这幻灯片一样的即视感是怎么回事?!</string>
+			</dict>
+		</dict>
+		
+		<dict>
+			<key>typeid</key>
+			<string>S002</string>
+			<key>name</key>
+			<string>UI Strings</string>
+			<key>description</key>
+			<string>The strings for UI usage</string>
+			<key>strings</key>
+			<dict>
+				<key>10000</key>
+				<string>快给我选区域啊混蛋!!!</string>
+				<key>10001</key>
+				<string>快给我选关卡啊混蛋!!!</string>
+				<key>10002</key>
+				<string>快给我...(泥垢了!!)</string>
+				<key>10003</key>
+				<string>骚年，你咯(gér)咯(gér)了...</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

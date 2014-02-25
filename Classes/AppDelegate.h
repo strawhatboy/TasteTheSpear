@@ -43,7 +43,8 @@ public:
     virtual void applicationWillEnterForeground();
 
 private:
-	void InitLuaEngine();
+	void initLuaEngine();
+	void initConfigurationPath();
 };
 
 #endif  // __APP_DELEGATE_H__

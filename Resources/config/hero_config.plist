@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!-- configuration file for Levels -->
+<dict>
+	<key>heros</key>
+	<array>
+		<dict>
+			<!-- gameobject -->
+			<key>typeid</key>
+			<string>H001</string>
+			<key>name</key>
+			<string>标枪机</string>
+			<key>description</key>
+			<string>    既然我们游戏名叫Taste the spear，那么必须有点关系嘛。。呐，这个‘标枪机’就是为了切题反应中心思想的嘛。。什么，还没编故事？哦，那就是原住民发现标枪对外星人和他们的战斗单位比较有杀伤力，所以改造了战机来发射标枪。。嗯，很合理嘛。。\n特点：攻守兼备</string>
+			
+			
+		<!-- updated on 2/17/2014 -->
+		<!-- we will not use the custom type sprite sheet 'cause it's really much more convenient to use cocoStudio -->
+		<!-- so here the texture should be a referenced to the new type texture we called armature -->
+			<key>texture</key>
+			<string>T001</string>
+			
+			<!-- fightingunit -->
+			<key>life</key>
+			<string>10</string>
+			<key>attack</key>
+			<string>10</string>
+			<key>defense</key>
+			<string>2</string>
+			<key>fireRate</key>
+			<!-- 10 times per second -->
+			<string>10</string>
+			<key>lifeDelta</key>
+			<string>2</string>
+			<key>attackDelta</key>
+			<string>3</string>
+			<key>defenseDelta</key>
+			<string>2</string>
+			<key>fireRateDelta</key>
+			<string>1</string>
+			<key>abilities</key>
+			<array>
+				<string>A001</string>
+			</array>
+			
+			<!-- herotype -->
+			<key>handling</key>
+			<string>3</string>
+		</dict>
+	</array>
+</dict>
+</plist>
