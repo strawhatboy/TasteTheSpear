@@ -19,6 +19,14 @@ USING_NS_CC_EXT;
 
 class GameObjectTypesLoader
 {
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_HeroTypes, HeroTypes);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_FightingUnitTypes, FightingUnitTypes);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_MissileTypes, MissileTypes);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_DistrictTypes, DistrictTypes);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_TextureTypes, TextureTypes);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Armatures, Armatures);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_StringResources, StringResources);
+
 private:
 
 
@@ -47,15 +55,8 @@ private:
 
 	template <class T>
 	bool loadTypeFromFile(const char* pszFileName, const char* pszFirstKeyName, CCDictionary* result);
-
-
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_HeroTypes, HeroTypes);
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_FightingUnitTypes, FightingUnitTypes);
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_MissileTypes, MissileTypes);
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_DistrictTypes, DistrictTypes);
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_TextureTypes, TextureTypes);
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Armatures, Armatures);
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_StringResources, StringResources);
+	int loadArmaturesFromTextureConfig();
+	int loadArmaturesFromTextureConfigAsync(CCObject* target, SEL_SCHEDULE selector);
 
 public:
 	~GameObjectTypesLoader(void);
@@ -76,6 +77,8 @@ public:
 	// return count that loaded for the async method.
 	int loadArmatures();
 	int loadArmaturesAsync(CCObject* target, SEL_SCHEDULE selector);
+
+	void setArmaturePairs(CCObject* obj, const string& key);
 	
 	CC_SHARED_CREATE_FUNC(GameObjectTypesLoader);
 };

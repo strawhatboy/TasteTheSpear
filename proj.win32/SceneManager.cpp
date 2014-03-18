@@ -27,14 +27,17 @@ bool SceneManager::loadScene(PreloadedScene *preloadedScene)
 
 bool SceneManager::loadScene(PreloadedScene *preloadedScene, bool withLoadingScene)
 {
+	bool bRet = false;
+
 	if (!withLoadingScene)
 	{
 		CCTransitionFade* fade = CCTransitionFade::create(this->m_trasitionDuration, preloadedScene);
 		CCDirector::sharedDirector()->replaceScene(fade);
-		return preloadedScene->loadResources();
+		bRet = preloadedScene->loadResources();
+		bRet = bRet && preloadedScene->drawContents();
+		return bRet;
 	}
 
-	bool bRet = false;
 	do
 	{
 		//preloadedScene->retain();

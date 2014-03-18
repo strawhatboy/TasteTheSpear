@@ -15,8 +15,10 @@ class HelloWorld : public cocos2d::CCLayer
 {
 private:
 	void loadArmaturesComplete(float dt);
+	void loadArmaturesAllComplete();
 	int m_nArmaturesCount;
 	int m_nArmaturesTotalCount;
+	void loadUserDefaults();
 
 
 public:

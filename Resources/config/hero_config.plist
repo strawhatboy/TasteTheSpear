@@ -12,11 +12,11 @@
 			<key>name</key>
 			<string>标枪机</string>
 			<key>description</key>
-			<string>    既然我们游戏名叫Taste the spear，那么必须有点关系嘛。。呐，这个‘标枪机’就是为了切题反应中心思想的嘛。。什么，还没编故事？哦，那就是原住民发现标枪对外星人和他们的战斗单位比较有杀伤力，所以改造了战机来发射标枪。。嗯，很合理嘛。。\n特点：攻守兼备</string>
+			<string>    既然我们游戏名叫Taste the spear，那么必须有点关系嘛。。呐，这个‘标枪机’就是为了切题反应中心思想的嘛。。什么，还没编故事？哦，那就是原住民发现标枪对外星人和他们的战斗单位比较有杀伤力，所以改造了战机来发射标枪。。嗯，很合理嘛。。&#13;    特点：攻守兼备</string>
 			
 			
 		<!-- updated on 2/17/2014 -->
-		<!-- we will not use the custom type sprite sheet 'cause it's really much more convenient to use cocoStudio -->
+		<!-- we will not use the custom type sprite sheet cause it's really much more convenient to use cocoStudio -->
 		<!-- so here the texture should be a referenced to the new type texture we called armature -->
 			<key>texture</key>
 			<string>T001</string>

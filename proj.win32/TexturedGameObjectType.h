@@ -13,5 +13,9 @@ public:
 
 	// returns HERO, UNIT, MISSILE, BOSS, should never return STR_GAMEOBJECT
 	virtual const char* getObjectType(void) const = 0;
+
+	virtual bool loadArmature(
+		CCObject* target = NULL,
+		SEL_SCHEDULE selector = NULL) const;
 };
 

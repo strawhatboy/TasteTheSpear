@@ -254,6 +254,24 @@
     <ClInclude Include="StringResourceType.h">
       <Filter>include\models</Filter>
     </ClInclude>
+    <ClInclude Include="UserDefaultUtils.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelSelectScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelSelectLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroSelectScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroSelectLayer.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -378,6 +396,24 @@
     </ClCompile>
     <ClCompile Include="StringResourceType.cpp">
       <Filter>source\models</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDefaultUtils.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSelectScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelSelectLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLayer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroSelectScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroSelectLayer.cpp">
+      <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

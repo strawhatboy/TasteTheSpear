@@ -37,16 +37,16 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     AppDelegate app;
     CCEGLView* eglView = CCEGLView::sharedOpenGLView();
     eglView->setViewName("Taste The Spear");
-	//eglView->setFrameSize(320, 480);
+	eglView->setFrameSize(320, 480);
 	//eglView->setFrameSize(768, 1366);
 	//eglView->setFrameSize(768, 1024);
-    eglView->setFrameSize(1536, 2048);
+    //eglView->setFrameSize(1536, 2048);
 
     //eglView->setFrameSize(2048, 1536);
     // The resolution of ipad3 is very large. In general, PC's resolution is smaller than it.
     // So we need to invoke 'setFrameZoomFactor'(only valid on desktop(win32, mac, linux)) to make the window smaller.
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    eglView->setFrameZoomFactor(0.3f);
+    eglView->setFrameZoomFactor(1.5f);
 #endif
     ret = CCApplication::sharedApplication()->run();
 

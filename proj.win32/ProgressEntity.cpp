@@ -3,6 +3,9 @@
 
 ProgressEntity::ProgressEntity(void)
 {
+	this->setMaxValue(1);
+	this->setMinValue(0);
+	this->setCurrentValue(0);
 }
 
 

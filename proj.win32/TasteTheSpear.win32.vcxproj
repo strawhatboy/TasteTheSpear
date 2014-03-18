@@ -156,13 +156,18 @@
     <ClInclude Include="FightingUnitType.h" />
     <ClInclude Include="GameDirector.h" />
     <ClInclude Include="GameEventsMacros.h" />
+    <ClInclude Include="GameLayer.h" />
     <ClInclude Include="GameObjectPrecompileHeader.h" />
     <ClInclude Include="GameObjectType.h" />
     <ClInclude Include="GameObjectTypesLoader.h" />
     <ClInclude Include="GameObject_Runtime.h" />
+    <ClInclude Include="HeroSelectLayer.h" />
+    <ClInclude Include="HeroSelectScene.h" />
     <ClInclude Include="HeroType.h" />
     <ClInclude Include="Hero_Runtime.h" />
     <ClInclude Include="IHasProgress.h" />
+    <ClInclude Include="LevelSelectLayer.h" />
+    <ClInclude Include="LevelSelectScene.h" />
     <ClInclude Include="LevelType.h" />
     <ClInclude Include="MenuLayer.h" />
     <ClInclude Include="MissileType.h" />
@@ -190,6 +195,7 @@
     <ClInclude Include="TexturedGameObject_Runtime.h" />
     <ClInclude Include="TextureType.h" />
     <ClInclude Include="TutsauLayer.h" />
+    <ClInclude Include="UserDefaultUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
@@ -201,12 +207,17 @@
     <ClCompile Include="FightingUnit_Runtime.cpp" />
     <ClCompile Include="FightingUnitType.cpp" />
     <ClCompile Include="GameDirector.cpp" />
+    <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="GameObjectType.cpp" />
     <ClCompile Include="GameObjectTypesLoader.cpp" />
     <ClCompile Include="GameObject_Runtime.cpp" />
+    <ClCompile Include="HeroSelectLayer.cpp" />
+    <ClCompile Include="HeroSelectScene.cpp" />
     <ClCompile Include="HeroType.cpp" />
     <ClCompile Include="Hero_Runtime.cpp" />
     <ClCompile Include="IHasProgress.cpp" />
+    <ClCompile Include="LevelSelectLayer.cpp" />
+    <ClCompile Include="LevelSelectScene.cpp" />
     <ClCompile Include="LevelType.cpp" />
     <ClCompile Include="MenuLayer.cpp" />
     <ClCompile Include="MissileType.cpp" />
@@ -233,6 +244,7 @@
     <ClCompile Include="TexturedGameObject_Runtime.cpp" />
     <ClCompile Include="TextureType.cpp" />
     <ClCompile Include="TutsauLayer.cpp" />
+    <ClCompile Include="UserDefaultUtils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

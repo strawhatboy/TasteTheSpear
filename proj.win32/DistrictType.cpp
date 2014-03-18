@@ -22,3 +22,15 @@ DistrictType::~DistrictType(void)
 	//TODO: remove its levelTypes
 	DELETE_CPP_ARRAY(this->m_Levels, LevelType);
 }
+
+bool DistrictType::loadArmature(
+		CCObject* target,
+		SEL_SCHEDULE selector) const
+{
+	TexturedGameObjectType::loadArmature(target, selector);
+	for_each(m_Levels->begin(), m_Levels->end(), [target, selector](const LevelType* levelType){
+		levelType->loadArmature(target, selector);
+	});
+
+	return true;
+}

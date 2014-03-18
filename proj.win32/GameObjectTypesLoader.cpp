@@ -161,44 +161,47 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 		CCObject* target = NULL,
 		SEL_SCHEDULE selector = NULL)
 	{
-		int count = 0;
+		CCLog("armatures' count before: %d", this->m_Armatures->count());
 		CCDictElement* el = NULL;
 		CCDICT_FOREACH(dict, el)
 		{
 			auto _type = dynamic_cast<TexturedGameObjectType*>(el->getObject());
 			if (_type != NULL)
 			{
-				auto id = _type->getTypeID();
-				if (strlen(getArmatureNameByID(id.c_str())) == 0)
-				{//There's no such armature available in the dict, so add it. otherwise skip it.
-					auto _t_type = getTextureTypeByID(_type->getTexture().c_str());
-					if (_t_type != NULL)
-					{
-						auto name = _t_type->getName();
-						auto json = _t_type->getExportJson();
-						auto png = _t_type->getExportPNG();
-						auto plist = _t_type->getExportPlist();
-						if (selector != NULL)
-							CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync(
-								png.c_str(),
-								plist.c_str(),
-								json.c_str(),
-								target,
-								selector);
-						else
-							CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(
-								png.c_str(),
-								plist.c_str(),
-								json.c_str());
+				//auto id = _type->getTypeID();
+				//if (strlen(getArmatureNameByID(id.c_str())) == 0)
+				//{//There's no such armature available in the dict, so add it. otherwise skip it.
+				//	auto _t_type = getTextureTypeByID(_type->getTexture().c_str());
+				//	if (_t_type != NULL)
+				//	{
+				//		auto name = _t_type->getName();
+				//		auto json = _t_type->getExportJson();
+				//		auto png = _t_type->getExportPNG();
+				//		auto plist = _t_type->getExportPlist();
+				//		if (selector != NULL)
+				//			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync(
+				//				png.c_str(),
+				//				plist.c_str(),
+				//				json.c_str(),
+				//				target,
+				//				selector);
+				//		else
+				//			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(
+				//				png.c_str(),
+				//				plist.c_str(),
+				//				json.c_str());
 
-						//CCArmature* armature = CCArmature::create(name.c_str());
-						this->m_Armatures->setObject(CCString::create(name), id);
-						count++;
-					}
-				}
+				//		//CCArmature* armature = CCArmature::create(name.c_str());
+				//		this->m_Armatures->setObject(CCString::create(name), id);
+				//		count++;
+				//	}
+				//}
+				string name;
+				_type->loadArmature(target, selector);
 			}
 		}
-		return count;
+		CCLog("armatures' count: %d", this->m_Armatures->count());
+		return 1;
 	}
 
 	int GameObjectTypesLoader::loadArmaturesWithDict(const CCDictionary* dict)
@@ -211,22 +214,27 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 		return loadArmaturesWithDict_Common(dict, target, selector);
 	}
 	
+
+
 	int GameObjectTypesLoader::loadArmatures()
 	{
-		return this->loadArmaturesWithDict(this->m_DistrictTypes)
+		auto wtf = this->loadArmaturesWithDict(this->m_DistrictTypes)
 			+ this->loadArmaturesWithDict(this->m_FightingUnitTypes)
 			+ this->loadArmaturesWithDict(this->m_HeroTypes)
 			+ this->loadArmaturesWithDict(this->m_MissileTypes)
 			;
+
+		return loadArmaturesFromTextureConfig();
 	}
 
 	int GameObjectTypesLoader::loadArmaturesAsync(CCObject* target, SEL_SCHEDULE selector)
 	{
-		return this->loadArmaturesWithDictAsync(this->m_DistrictTypes, target, selector)
+		auto wtf = this->loadArmaturesWithDictAsync(this->m_DistrictTypes, target, selector)
 			+ this->loadArmaturesWithDictAsync(this->m_FightingUnitTypes, target, selector)
 			+ this->loadArmaturesWithDictAsync(this->m_HeroTypes, target, selector)
 			+ this->loadArmaturesWithDictAsync(this->m_MissileTypes, target, selector)
 			;
+		return loadArmaturesFromTextureConfigAsync(target, selector);
 	}
 	
 	bool GameObjectTypesLoader::loadAllTypes()
@@ -309,4 +317,70 @@ CCArmature* GameObjectTypesLoader::createArmatureByID(const char* pszID)
 		return NULL;
 	CCArmature* armature = CCArmature::create(armatureName);
 	return armature;
+}
+
+void GameObjectTypesLoader::setArmaturePairs(CCObject* obj, const string& key)
+{
+	this->m_Armatures->setObject(obj, key);
+	CCLog("Armature Pair set: %s : %s", key.c_str(), ((CCString*)obj)->getCString());
+}
+
+
+
+int GameObjectTypesLoader::loadArmaturesFromTextureConfig()
+{
+	CCDictElement* el = NULL;
+	auto dict = this->m_TextureTypes;
+	auto count = 0;
+	CCDICT_FOREACH(dict, el)
+	{
+		auto _type = dynamic_cast<TextureType*>(el->getObject());
+		if (_type != NULL)
+		{
+			auto png = _type->getExportPNG();
+			auto plist = _type->getExportPlist();
+			auto json = _type->getExportJson();
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(
+					png.c_str(),
+					plist.c_str(),
+					json.c_str());
+
+			CCLog("Added armature '%s:%s' ('%s' '%s' '%s') without async.", _type->getTypeID().c_str(),
+				_type->getName().c_str(),
+				png.c_str(), plist.c_str(), json.c_str());
+		}
+		count++;
+	}
+	return count;
+}
+
+
+
+int GameObjectTypesLoader::loadArmaturesFromTextureConfigAsync(CCObject* target, SEL_SCHEDULE selector)
+{
+	CCDictElement* el = NULL;
+	auto dict = this->m_TextureTypes;
+	auto count = 0;
+	CCDICT_FOREACH(dict, el)
+	{
+		auto _type = dynamic_cast<TextureType*>(el->getObject());
+		if (_type != NULL)
+		{
+			auto png = _type->getExportPNG();
+			auto plist = _type->getExportPlist();
+			auto json = _type->getExportJson();
+			CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfoAsync(
+					png.c_str(),
+					plist.c_str(),
+					json.c_str(),
+					target,
+					selector);
+
+			CCLog("Added armature '%s:%s' ('%s' '%s' '%s') with async.", _type->getTypeID().c_str(),
+				_type->getName().c_str(),
+				png.c_str(), plist.c_str(), json.c_str());
+		}
+		count++;
+	}
+	return count;
 }

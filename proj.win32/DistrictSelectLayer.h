@@ -5,6 +5,8 @@
 #include "GameObjectTypesLoader.h"
 #include "ScrollLayer.h"
 #include "GameDirector.h"
+#include "LevelSelectScene.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -14,6 +16,7 @@ class DistrictSelectLayer :
 {
 private:
 	void districtSelected(CCObject* obj);
+	vector<string>* m_DistrictsIDs;
 
 public:
 	DistrictSelectLayer(void);

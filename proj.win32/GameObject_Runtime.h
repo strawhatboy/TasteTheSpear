@@ -9,6 +9,8 @@
 class GameObject_Runtime 
 	: public CCSprite
 {
+	CC_SYNTHESIZE(CCDictionary*, m_pAdditionalProperties, AdditionalProperties);
+
 protected:
 	GameObjectType* m_GameObjectType;
 
@@ -55,6 +57,16 @@ protected:
 	virtual string getName(void) const
 	{
 		return m_GameObjectType->getName();
+	}
+
+	virtual CCObject* getAdditionalProperty(const string& key) const
+	{
+		return m_pAdditionalProperties->objectForKey(key);
+	}
+
+	virtual void setAdditionalProperty(const string& key, CCObject* value)
+	{
+		m_pAdditionalProperties->setObject(value, key);
 	}
 };
 

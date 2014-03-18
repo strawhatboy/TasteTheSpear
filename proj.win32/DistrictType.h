@@ -18,5 +18,9 @@ public:
 	}
 
 	CREATE_WITH_DICT(DistrictType);
+
+	virtual bool loadArmature(
+		CCObject* target = NULL,
+		SEL_SCHEDULE selector = NULL) const;
 };
 

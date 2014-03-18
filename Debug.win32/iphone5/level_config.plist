@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!-- configuration file for Levels -->
+<dict>
+	<key>districts</key>
+	<array>
+		<dict>
+			<key>typeid</key>
+			<string>D001</string>
+			<key>name</key>
+			<string>TEARTH</string>
+			<key>description</key>
+			<string>M75星系原住民生存之地，星系中最适合居住的星球，但遭受外星系殖民者侵略，如今大片地区沦陷，只留下少许反抗力量保留实力意图有朝一日能够解放星系</string>
+			<key>levels</key>
+			<array>
+				<dict>
+					<key>typeid</key>
+					<string>L001</string>
+					<key>name</key>
+					<string>隐蔽森林</string>
+					<key>description</key>
+					<string>原住民武装力量隐藏地，未来战争的胜利者利用时光机器前来此地协助原住民解放</string>
+				</dict>
+				<dict>
+					<key>typeid</key>
+					<string>L002</string>
+					<key>name</key>
+					<string>废弃海岛基地</string>
+					<key>description</key>
+					<string>被外星人占领的军事基地，含有大量军备物资，是理想的补给站</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

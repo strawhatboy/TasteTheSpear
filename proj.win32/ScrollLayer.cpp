@@ -85,6 +85,8 @@ bool ScrollLayer::init()
 	else
 		this->m_pContentLayer->setContentSize(CCSizeMake(this->m_size.width, this->m_size.height * count));
 
+	this->m_pContentLayer->setPosition(CCPointZero);
+
 	// put the contentLayer into a clipping node
 	CCDrawNode* stencil = CCDrawNode::create();
 	CCPoint rect[4];
@@ -93,7 +95,7 @@ bool ScrollLayer::init()
 	rect[2] = ccp(this->m_size.width, this->m_size.height);
 	rect[3] = ccp(0, this->m_size.height);
 	ccColor4F white = {1, 1, 1, 1};
-	stencil->drawPolygon(rect, 4, white, 1, white);
+	stencil->drawPolygon(rect, 4, white, 0, white);
 	CCClippingNode *clipper= CCClippingNode::create(stencil);
 	clipper->addChild(this->m_pContentLayer);
 	clipper->setPosition(this->m_point);
@@ -118,7 +120,7 @@ bool ScrollLayer::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 {
 	this->m_bMoved = false;
 	this->m_touchBeganPoint = pTouch->getLocation();
-	CCLog("ScrollLayer touch began, point: %f, %f", this->m_touchBeganPoint.x, this->m_touchBeganPoint.y);
+	//CCLog("ScrollLayer touch began, point: %f, %f", this->m_touchBeganPoint.x, this->m_touchBeganPoint.y);
 
 	this->m_pLayerCovered = CCLayerColor::create(ccc4(0, 0, 0, 50));
 	this->addChild(this->m_pLayerCovered);
@@ -128,8 +130,8 @@ bool ScrollLayer::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 
 void ScrollLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
-	CCLog("ScrollLayer touch ended, point: %f, %f", pTouch->getLocation().x, pTouch->getLocation().y);
-	CCLog("View point: %f, %f", pTouch->getLocationInView().x, pTouch->getLocationInView().y);
+	//CCLog("ScrollLayer touch ended, point: %f, %f", pTouch->getLocation().x, pTouch->getLocation().y);
+	//CCLog("View point: %f, %f", pTouch->getLocationInView().x, pTouch->getLocationInView().y);
 
 	// we can start change page when moveDis is larger than 2/5 of the page size.
 	auto moveDis = getMovedDis(pTouch->getLocation());
@@ -141,21 +143,21 @@ void ScrollLayer::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 			{
 				// switch to next page.
 				//CCEaseSineOut::create(CCMoveTo::create(0.2, 
-				if (moveDis > 0 && index < this->m_pLayers->count() - 1)
-					// move to the right one.
-					index++;
-
-				if (moveDis < 0 && index > 0)
+				if (moveDis > 0 && index > 0)
 					// move to the left one.
 					index--;
+
+				if (moveDis < 0 && index < this->m_pLayers->count() - 1)
+					// move to the right one.
+					index++;
 
 			}
 
 		this->m_pContentLayer->runAction(
 			CCEaseSineOut::create(
 				CCMoveTo::create(0.2f, this->m_bHorizontal ? 
-					ccp(index * this->m_size.width, 0) :
-					ccp(0, index * this->m_size.height))));
+					ccp(-1-index * this->m_size.width, 0) :
+					ccp(0, -1-index * this->m_size.height))));
 		this->m_nIndex = index;
 	}
 	else
@@ -186,24 +188,27 @@ void ScrollLayer::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 		auto maxIndex = this->m_pLayers->count() - 1;
 
 		auto newPos = this->m_bFirstSign ? moveDis - 50 : moveDis + 50;
-		auto newIndex = this->getIndex() - newPos / (this->m_bHorizontal ? this->m_size.width : this->m_size.height);
-		if (newIndex >=0 && newIndex <= maxIndex)
-			this->m_nIndex = newIndex;
+
+		auto unitLength = (this->m_bHorizontal ? this->m_size.width : this->m_size.height);
+
+		//auto newIndex = this->getIndex() - static_cast<int>(newPos / unitLength);
+		//if (newIndex >=0 && newIndex <= maxIndex)
+		//	this->m_nIndex = newIndex;
 
 		auto currentIndex = this->getIndex();
 
-		if (currentIndex <= 0 || currentIndex >= maxIndex)
+		if ((currentIndex <= 0 || currentIndex >= maxIndex) && maxIndex != 1)
 		{
 			// will never move more than 2/5 of the size;
 			newPos = newPos * 0.4; //* (this->m_bHorizontal ? this->m_size.width : this->m_size.height);
 		}
 		if (this->m_bHorizontal)
 		{
-			this->m_pContentLayer->setPositionX(newPos);
+			this->m_pContentLayer->setPositionX(newPos - currentIndex * unitLength);
 		}
 		else
 		{
-			this->m_pContentLayer->setPositionY(newPos);
+			this->m_pContentLayer->setPositionY(newPos - currentIndex * unitLength);
 		}
 	}
 }

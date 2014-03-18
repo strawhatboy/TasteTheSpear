@@ -6,6 +6,8 @@ bool DistrictSelectLayer::init()
 	bool bRet = false;
 	do 
 	{
+		CC_BREAK_IF(!CCLayer::init());
+
 		auto typesLoader = GameObjectTypesLoader::sharedInstance();
 		auto districtList = typesLoader->getDistrictTypes();
 		auto arrLayer = CCArray::create();
@@ -37,7 +39,8 @@ bool DistrictSelectLayer::init()
 			labelD->setPosition(ccpAdd(ccp(20, 20), ccpMult(labelD->getContentSize(), 0.5f)));
 			layer->addChild(labelD);
 					
-
+			
+			m_DistrictsIDs->push_back(district->getTypeID());
 			arrLayer->addObject(layer);
 		}
 
@@ -56,6 +59,8 @@ bool DistrictSelectLayer::init()
 		labelT->setPosition(ccpAdd(CCPDesignZero, ccpSub(designResolutionSize, ccpMult(labelT->getContentSize(), 0.5f))));
 		this->addChild(labelT);
 
+
+		// Add HOME menuitem
 		bRet = true;
 	} while (0);
 
@@ -64,12 +69,16 @@ bool DistrictSelectLayer::init()
 
 DistrictSelectLayer::DistrictSelectLayer(void)
 {
+	INIT_POINTER(this->m_DistrictsIDs);
+	this->m_DistrictsIDs = new vector<string>();
 }
 
 
 DistrictSelectLayer::~DistrictSelectLayer(void)
 {
+	CC_SAFE_DELETE(this->m_DistrictsIDs);
 }
+
 
 void DistrictSelectLayer::districtSelected(CCObject* obj)
 {
@@ -78,6 +87,13 @@ void DistrictSelectLayer::districtSelected(CCObject* obj)
 		return;
 
 	int index = layer->getTag();
-
+	auto districtID = this->m_DistrictsIDs->at(index);
+	if (GameObjectTypesLoader::sharedInstance()->getDistrictTypeByID(districtID.c_str())->getLevels()->size() > 0)
+	{
+		GameDirector::sharedInstance()->setCurrentDistrict(districtID);
+		LevelSelectScene* levelSelect = LevelSelectScene::create(districtID.c_str());
+		CCDirector::sharedDirector()->replaceScene(levelSelect);
+	}
 	CCLog("District Selected with index %d.", index);
+
 }

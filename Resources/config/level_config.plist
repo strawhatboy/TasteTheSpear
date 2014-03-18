@@ -23,6 +23,10 @@
 					<string>隐蔽森林</string>
 					<key>description</key>
 					<string>原住民武装力量隐藏地，未来战争的胜利者利用时光机器前来此地协助原住民解放</string>
+					<key>texture</key>
+					<string>T004</string>
+					<key>script</key>
+					<string>L001.lua</string>
 				</dict>
 				<dict>
 					<key>typeid</key>
@@ -31,7 +35,50 @@
 					<string>废弃海岛基地</string>
 					<key>description</key>
 					<string>被外星人占领的军事基地，含有大量军备物资，是理想的补给站</string>
+					<key>texture</key>
+					<string>T003</string>
+					<key>script</key>
+					<string>L002.lua</string>
 				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>typeid</key>
+			<string>D002</string>
+			<key>name</key>
+			<string>UNKNOWN</string>
+			<key>description</key>
+			<string>未知领域敬请期待</string>
+			<key>texture</key>
+			<string>T005</string>
+			<key>levels</key>
+			<array>
+			</array>
+		</dict>
+		<dict>
+			<key>typeid</key>
+			<string>D003</string>
+			<key>name</key>
+			<string>UNKNOWN ...</string>
+			<key>description</key>
+			<string>未知领域敬请期待</string>
+			<key>texture</key>
+			<string>T005</string>
+			<key>levels</key>
+			<array>
+			</array>
+		</dict>
+		<dict>
+			<key>typeid</key>
+			<string>D004</string>
+			<key>name</key>
+			<string>还是UNKNOWN ...</string>
+			<key>description</key>
+			<string>未知领域敬请期待</string>
+			<key>texture</key>
+			<string>T005</string>
+			<key>levels</key>
+			<array>
 			</array>
 		</dict>
 	</array>

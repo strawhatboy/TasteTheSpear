@@ -18,7 +18,7 @@
 				<string>小样新来的吧</string>
 				<key>1</key>
 				<string>是不是被这高清的画质，华丽的动画震撼了呢</string>
-				<key>0</key>
+				<key>2</key>
 				<string>这幻灯片一样的即视感是怎么回事?!</string>
 			</dict>
 		</dict>
@@ -40,6 +40,16 @@
 				<string>快给我...(泥垢了!!)</string>
 				<key>10003</key>
 				<string>骚年，你咯(gér)咯(gér)了...</string>
+				<key>10004</key>
+				<string>战斗力</string>
+				<key>10005</key>
+				<string>防御力</string>
+				<key>10006</key>
+				<string>攻击速度</string>
+				<key>10007</key>
+				<string>生命值</string>
+				<key>10008</key>
+				<string>操作难度</string>
 			</dict>
 		</dict>
 	</array>

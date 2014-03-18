@@ -111,6 +111,34 @@
 			<key>ExportJson</key>
 			<string>FOREAST.ExportJson</string>
 		</dict>
+		<dict>
+			<key>typeid</key>
+			<string>T005</string>
+			<key>name</key>
+			<string>UNKNOWN</string>
+			<key>description</key>
+			<string>Unknown area.</string>
+			<key>ExportPNG</key>
+			<string>UNKNOWN0.png</string>
+			<key>ExportPlist</key>
+			<string>UNKNOWN0.plist</string>
+			<key>ExportJson</key>
+			<string>UNKNOWN.ExportJson</string>
+		</dict>
+		<dict>
+			<key>typeid</key>
+			<string>T006</string>
+			<key>name</key>
+			<string>UNKNOWN_TEXTURE</string>
+			<key>description</key>
+			<string>Unknown Texture for those types with a blank texture.</string>
+			<key>ExportPNG</key>
+			<string>UNKNOWN_TEXTURE0.png</string>
+			<key>ExportPlist</key>
+			<string>UNKNOWN_TEXTURE0.plist</string>
+			<key>ExportJson</key>
+			<string>UNKNOWN_TEXTURE.ExportJson</string>
+		</dict>
 	</array>
 </dict>
 </plist>

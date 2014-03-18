@@ -20,6 +20,8 @@ std::string WStrToUTF8(const std::wstring& str);
 #define w2c(__wstring__) WStrToUTF8(__wstring__).c_str()
 
 
+typedef unsigned int uint;
+
 
 /**
 @brief    The delegate of broadcast progress,
@@ -191,3 +193,7 @@ static __TYPE__* create() \
 
 
 CCTexture2D* getEmptyWhiteTexture();
+
+#define INIT_START bool bRet = false; do {
+#define INIT_END } while(0); return bRet;
+#define INIT_TRUE bRet = true;

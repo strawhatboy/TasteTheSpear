@@ -5,8 +5,8 @@ bool DistrictSelectScene::init()
 	bool bRet = false;
 	do 
 	{
+		CC_BREAK_IF(!CCScene::init());
 
-		this->addChild(DistrictSelectLayer::create());
 		bRet = true;
 	} while (0);
 
@@ -24,3 +24,16 @@ DistrictSelectScene::~DistrictSelectScene(void)
 {
 	CCLog("DistrictSelectScene deleted?!!");
 }
+
+	bool DistrictSelectScene::loadResources(void)
+	{
+		this->m_progress->setMaxValue(1);
+		this->m_progress->setCurrentValue(1);
+		LoadingScene::sharedInstance()->setProgress(this->m_progress);
+		return true;
+	}
+	bool DistrictSelectScene::drawContents(void)
+	{
+		this->addChild(DistrictSelectLayer::create());
+		return true;
+	}

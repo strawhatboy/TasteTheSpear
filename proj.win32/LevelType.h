@@ -1,10 +1,12 @@
 #pragma once
 #include "TexturedGameObjectType.h"
 
+#define STR_LEVEL_SCRIPT "script"
+
 class LevelType : 
 	public TexturedGameObjectType
 {
-
+	CC_SYNTHESIZE_READONLY(string, m_Script, Script);
 public:
 	~LevelType(void);
 

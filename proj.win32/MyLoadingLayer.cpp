@@ -50,7 +50,7 @@ bool MyLoadingLayer::init()
 	auto loadingBarSize = loadingBar->getContentSize();
 
 	CCProgressTimer* progressbar = CCProgressTimer::create(loadingBar);
-	//progressbar->setType(CCProgressTimerType::kCCProgressTimerTypeBar);
+	//progressbar->setType(CCProgressTimerTypekCCProgressTimerTypeBar);
 	progressbar->setType(kCCProgressTimerTypeBar);
 	
 	progressbar->setScaleY(visibleSize.height / loadingBarSize.height);
@@ -90,6 +90,7 @@ void MyLoadingLayer::setProgress(ProgressEntity* progress)
 	progressbar->runAction(fromToAction);
 
 	//progressbar->setPercentage(progress->getFinishPercentage() * 100);
-	if (progress->getFinishPercentage() == 1)
+	auto percentage = progress->getFinishPercentage();
+	if (percentage == 1)
 		CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_LOADING_LAYER_LOADING_COMPLETE);
 }

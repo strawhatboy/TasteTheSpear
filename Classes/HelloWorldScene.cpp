@@ -4,6 +4,7 @@
 #include "Fighter.h"
 #include "MyLoadingLayer.h"
 #include "GameDirector.h"
+#include "userdefaultutils.h"
 
 USING_NS_CC;
 
@@ -122,13 +123,6 @@ bool HelloWorld::init()
 	this->m_nArmaturesCount = 0;
 	this->m_nArmaturesTotalCount = GameObjectTypesLoader::sharedInstance()->loadArmaturesAsync(this, schedule_selector(HelloWorld::loadArmaturesComplete));
 
-#ifdef DEBUG
-	CCLog("Hero H001's attack is %f", GameObjectTypesLoader::sharedInstance()->getHeroTypeByID("H001")->getAttack());
-#endif
-
-	// set gamestate to MainMenu.
-	//GameDirector::sharedInstance()->setGameState(GameState::MAIN_MENU);
-	GameDirector::sharedInstance()->setGameState(MAIN_MENU);
 
 	// move to main menu scene.
 	// this->schedule(schedule_selector(HelloWorld::moveToMenuScene), 1.0f);
@@ -150,7 +144,80 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
 void HelloWorld::loadArmaturesComplete(float dt)
 {
 	this->m_nArmaturesCount++;
-	CCLog("Armature loaded %d", this->m_nArmaturesCount);
+	CCLog("Armature loaded %d and the expected count is %d", this->m_nArmaturesCount, this->m_nArmaturesTotalCount);
 	if (this->m_nArmaturesCount == this->m_nArmaturesTotalCount)
-		moveToMenuScene(0);
+	{
+		loadArmaturesAllComplete();
+	}
+}
+
+void HelloWorld::loadArmaturesAllComplete()
+{
+#ifdef DEBUG
+	auto hero = GameObjectTypesLoader::sharedInstance()->getHeroTypeByID("H001");
+	CCLog("Hero H001's attack is %f", hero->getAttack());
+	CCLog("Hero H001's attack delta is %f", hero->getAttackDelta());
+	CCLog("Hero H001's life is %f", hero->getLife());
+	
+	CCLog("Hero H001's life delta is %f", hero->getLifeDelta());
+#endif
+
+
+	
+	// load UserDefaults
+	loadUserDefaults();
+
+	// move to the next scene.
+	//moveToMenuScene(0);
+	// set gamestate to MainMenu.
+	//GameDirector::sharedInstance()->setGameState(GameState::MAIN_MENU);
+	//GameDirector::sharedInstance()->setGameState(MAIN_MENU);
+	GameDirector::sharedInstance()->changeState(MAIN_MENU);
+}
+
+void HelloWorld::loadUserDefaults()
+{
+	auto userDefault = UserDefaultUtils::sharedInstance();
+	if (!userDefault->isUserDefaultInitialized())
+	{
+		// set 1st run to true until we show the tutsau msg about the 1st time playing.
+		userDefault->setFirstRun(true);
+
+		auto typesLoader = GameObjectTypesLoader::sharedInstance();
+		// set all district locked except for the 1st one.
+		auto districts = typesLoader->getDistrictTypes();
+		CCDictElement* el = NULL;
+		CCDICT_FOREACH(districts, el)
+		{
+			auto district = dynamic_cast<DistrictType*>(el->getObject());
+
+
+			CC_CONTINUE_IF(district == NULL);
+
+			// the 1st one
+			if(district->getTypeID() != "D001")
+				userDefault->setDistrictUnlocked(district->getTypeID().c_str(), false);
+
+			// set its LEVELs to locked.
+			auto levels = district->getLevels();
+			for_each(levels->begin(), levels->end(), [userDefault](const LevelType* levelType){
+				if (levelType->getTypeID() != "L001")
+				{
+					userDefault->setLevelUnlocked(levelType->getTypeID().c_str(), false);
+				}
+			});
+		}
+
+		// set all heros' level to 1
+		auto heros = typesLoader->getHeroTypes();
+		el = NULL;
+		CCDICT_FOREACH(heros, el)
+		{
+			auto hero = dynamic_cast<HeroType*>(el->getObject());
+
+			CC_CONTINUE_IF(hero == NULL);
+
+			userDefault->setHeroLevel(hero->getTypeID().c_str(), 1);
+		}
+	}
 }
