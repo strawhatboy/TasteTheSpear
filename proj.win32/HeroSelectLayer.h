@@ -6,6 +6,7 @@
 #include "GameDirector.h"
 #include "ScrollLayer.h"
 #include "UserDefaultUtils.h"
+#include "GameScene.h"
 
 USING_NS_CC;
 

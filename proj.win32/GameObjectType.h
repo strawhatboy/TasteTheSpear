@@ -18,6 +18,7 @@ USING_NS_CC;
 #define STR_LEVEL "LEVEL"
 #define STR_TEXTURE "TEXTURE"
 #define STR_STRINGRESOURCE "STRING"
+#define STR_ABILITY "ABILITY"
 
 class GameObjectType :
 	public CCNode

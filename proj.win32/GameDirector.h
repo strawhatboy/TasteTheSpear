@@ -30,6 +30,8 @@ public:
 
 	void changeState(uint gameState, CCDictionary* dictParams = NULL);
 
+	//FightingUnit_Runtime* createFightingUnit(const char* pszID, 
+
 
 	CC_SHARED_CREATE_FUNC(GameDirector);
 

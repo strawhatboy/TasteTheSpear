@@ -15,6 +15,7 @@ GameObjectTypesLoader::GameObjectTypesLoader(void)
 	INIT_POINTER(this->m_TextureTypes);
 	INIT_POINTER(this->m_Armatures);
 	INIT_POINTER(this->m_StringResources);
+	INIT_POINTER(this->m_Abilities);
 
 	__CREATE_OBJTYPE_ARRAYS(this->m_HeroTypes);
 	__CREATE_OBJTYPE_ARRAYS(this->m_FightingUnitTypes);
@@ -23,6 +24,7 @@ GameObjectTypesLoader::GameObjectTypesLoader(void)
 	__CREATE_OBJTYPE_ARRAYS(this->m_TextureTypes);
 	__CREATE_OBJTYPE_ARRAYS(this->m_Armatures);
 	__CREATE_OBJTYPE_ARRAYS(this->m_StringResources);
+	__CREATE_OBJTYPE_ARRAYS(this->m_Abilities);
 }
 
 GameObjectTypesLoader::~GameObjectTypesLoader(void)
@@ -39,6 +41,7 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 	this->m_TextureTypes->release();
 	this->m_Armatures->release();
 	this->m_StringResources->release();
+	this->m_Abilities->release();
 }
 
 // Macros are bad !!!
@@ -121,8 +124,7 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 	}
 	bool GameObjectTypesLoader::loadAbilityTypes()
 	{
-		bool bRet = true;
-		return bRet;
+		return loadTypeFromFile<AbilityType>(STR_ABILITY_TYPES_CONFIG_FILE_NAME, "abilities", this->m_Abilities);
 	}
 	bool GameObjectTypesLoader::loadAnimationsTypes()
 	{
@@ -299,6 +301,15 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 			CCLog("No such StringResourceType '%s' loaded.", pszID);
 
 		return sType;
+	}
+
+	AbilityType* GameObjectTypesLoader::getAbilityTypeByID(const char* pszID)
+	{
+		auto aType = dynamic_cast<AbilityType*>(this->m_Abilities->objectForKey(string(pszID)));
+		if (aType == NULL)
+			CCLog("No such AbilityType '%s' loaded.", pszID);
+
+		return aType;
 	}
 
 

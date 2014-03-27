@@ -8,6 +8,7 @@
 #include "DistrictType.h"
 #include "TextureType.h"
 #include "StringResourceType.h"
+#include "AbilityType.h"
 
 #include "cocos-ext.h"
 USING_NS_CC_EXT;
@@ -16,6 +17,7 @@ USING_NS_CC_EXT;
 #define STR_LEVEL_TYPES_CONFIG_FILE_NAME "level_config.plist"
 #define STR_TEXTURE_TYPES_CONFIG_FILE_NAME "texture_config.plist"
 #define STR_STRINGRESOURCE_TYPES_CONFIG_FILE_NAME "stringResources.plist"
+#define STR_ABILITY_TYPES_CONFIG_FILE_NAME "ability_config.plist"
 
 class GameObjectTypesLoader
 {
@@ -26,6 +28,7 @@ class GameObjectTypesLoader
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_TextureTypes, TextureTypes);
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Armatures, Armatures);
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_StringResources, StringResources);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Abilities, Abilities);
 
 private:
 
@@ -68,6 +71,7 @@ public:
 	DistrictType* getDistrictTypeByID(const char* pszID);
 	TextureType* getTextureTypeByID(const char* pszID);
 	StringResourceType* getStringResourceTypeByID(const char* pszID);
+	AbilityType* getAbilityTypeByID(const char* pszID);
 
 	const char* getArmatureNameByID(const char* pszID);
 

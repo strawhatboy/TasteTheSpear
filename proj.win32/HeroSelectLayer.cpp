@@ -63,8 +63,18 @@ bool HeroSelectLayer::init()
 }
 
 void HeroSelectLayer::heroSelected(CCObject* obj)
-{
+{	
+	auto layer = dynamic_cast<CCLayer*>(obj);
+	if (layer == NULL)
+		return;
 
+	int index = layer->getTag();
+	auto heroID = this->m_HerosIDs->at(index);
+	GameDirector::sharedInstance()->setCurrentHero(heroID);
+	// move to game scene.
+	auto gameScene = GameScene::create();
+	CCDirector::sharedDirector()->replaceScene(gameScene);
+	CCLog("Hero Selected with index %d and id %s.", index, heroID.c_str());
 }
 
 CCLayer* HeroSelectLayer::getChildLayer(HeroType* heroType)
@@ -190,17 +200,18 @@ CCLayer* HeroSelectLayer::getChildLayer(HeroType* heroType)
 	layer->addChild(progressbarbarDefense);
 	layer->addChild(progressbarbarFireRate);
 
+
 	CCLabelTTF* labelHP_Value = CCLabelTTF::create(CCString::createWithFormat("%.1f",
-		heroLife)->getCString(),
+		heroLife + (heroLevel - 1) * heroType->getLifeDelta())->getCString(),
 		"Segoe UI", 25.f, CCSizeMake(designResolutionSize.width * 0.3, 50), kCCTextAlignmentCenter, kCCVerticalTextAlignmentCenter);
 	CCLabelTTF* labelAttack_Value = CCLabelTTF::create(CCString::createWithFormat("%.1f",
-		heroAttack)->getCString(),
+		heroAttack + (heroLevel - 1) * heroType->getAttackDelta())->getCString(),
 		"Segoe UI", 25.f, CCSizeMake(designResolutionSize.width * 0.3, 50), kCCTextAlignmentCenter, kCCVerticalTextAlignmentCenter);
 	CCLabelTTF* labelDefense_Value = CCLabelTTF::create(CCString::createWithFormat("%.1f",
-		heroDefense)->getCString(),
+		heroDefense + (heroLevel - 1) * heroType->getDefenseDelta())->getCString(),
 		"Segoe UI", 25.f, CCSizeMake(designResolutionSize.width * 0.3, 50), kCCTextAlignmentCenter, kCCVerticalTextAlignmentCenter);
 	CCLabelTTF* labelAttackSpeed_Value = CCLabelTTF::create(CCString::createWithFormat("%.1f",
-		heroFireRate)->getCString(),
+		heroFireRate + (heroLevel - 1) * heroType->getFireRateDelta())->getCString(),
 		"Segoe UI", 25.f, CCSizeMake(designResolutionSize.width * 0.3, 50), kCCTextAlignmentCenter, kCCVerticalTextAlignmentCenter);
 	//CCLabelTTF* labelHandle_Value = CCLabelTTF::create(CCString::createWithFormat("%d",
 	//	heroType->getHandling())->getCString(),

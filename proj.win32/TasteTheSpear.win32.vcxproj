@@ -148,6 +148,7 @@
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="AbilityType.h" />
     <ClInclude Include="DistrictSelectLayer.h" />
     <ClInclude Include="DistrictSelectScene.h" />
     <ClInclude Include="DistrictType.h" />
@@ -156,11 +157,13 @@
     <ClInclude Include="FightingUnitType.h" />
     <ClInclude Include="GameDirector.h" />
     <ClInclude Include="GameEventsMacros.h" />
+    <ClInclude Include="GameHudLayer.h" />
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="GameObjectPrecompileHeader.h" />
     <ClInclude Include="GameObjectType.h" />
     <ClInclude Include="GameObjectTypesLoader.h" />
     <ClInclude Include="GameObject_Runtime.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="HeroSelectLayer.h" />
     <ClInclude Include="HeroSelectScene.h" />
     <ClInclude Include="HeroType.h" />
@@ -173,6 +176,7 @@
     <ClInclude Include="MissileType.h" />
     <ClInclude Include="Missile_Runtime.h" />
     <ClInclude Include="MyLayerOpacity.h" />
+    <ClInclude Include="MyListView.h" />
     <ClInclude Include="Obsolete_IBroadcaster.h" />
     <ClInclude Include="Obsolete_IHasAnyKeyToContinue.h" />
     <ClInclude Include="Obsolete_IHasProgress.h" />
@@ -200,6 +204,7 @@
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="AbilityType.cpp" />
     <ClCompile Include="DistrictSelectLayer.cpp" />
     <ClCompile Include="DistrictSelectScene.cpp" />
     <ClCompile Include="DistrictType.cpp" />
@@ -207,10 +212,12 @@
     <ClCompile Include="FightingUnit_Runtime.cpp" />
     <ClCompile Include="FightingUnitType.cpp" />
     <ClCompile Include="GameDirector.cpp" />
+    <ClCompile Include="GameHudLayer.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="GameObjectType.cpp" />
     <ClCompile Include="GameObjectTypesLoader.cpp" />
     <ClCompile Include="GameObject_Runtime.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="HeroSelectLayer.cpp" />
     <ClCompile Include="HeroSelectScene.cpp" />
     <ClCompile Include="HeroType.cpp" />
@@ -223,6 +230,7 @@
     <ClCompile Include="MissileType.cpp" />
     <ClCompile Include="Missile_Runtime.cpp" />
     <ClCompile Include="MyLayerOpacity.cpp" />
+    <ClCompile Include="MyListView.cpp" />
     <ClCompile Include="Obsolete_IBroadcaster.cpp" />
     <ClCompile Include="Obsolete_IHasAnyKeyToContinue.cpp" />
     <ClCompile Include="Obsolete_IHasProgress.cpp" />
