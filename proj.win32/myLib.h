@@ -197,3 +197,5 @@ CCTexture2D* getEmptyWhiteTexture();
 #define INIT_START bool bRet = false; do {
 #define INIT_END } while(0); return bRet;
 #define INIT_TRUE bRet = true;
+
+//#define var auto

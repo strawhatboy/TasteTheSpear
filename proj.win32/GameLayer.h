@@ -7,6 +7,7 @@
 
 USING_NS_CC;
 
+#define TAG_GAMELAYER 250
 
 class GameLayer :
 	public CCLayer

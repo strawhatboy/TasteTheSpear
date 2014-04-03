@@ -7,6 +7,7 @@ USING_NS_CC;
 #define STR_GAMEOBJECT_DESCRIPTION "description"
 #define STR_GAMEOBJECT_TYPEID "typeid"
 #define STR_GAMEOBJECT_TEXTURE "texture"
+#define STR_GAMEOBJECT_IS_ARMATURE "isarmature"
 //#define STR_GAMEOBJECT_ANIMATION "animations"
 
 #define STR_GAMEOBJECT "OBJECT"
@@ -34,6 +35,6 @@ public:
 	//CREATE_WITH_DICT(GameObjectType);
 
 	// returns HERO, UNIT, MISSILE, BOSS, should never return STR_GAMEOBJECT
-	virtual const char* getObjectType(void) const = 0;
+	virtual string getObjectType(void) const = 0;
 };
 

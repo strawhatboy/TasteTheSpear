@@ -20,7 +20,15 @@ bool GameLayer::init()
 
 	CC_BREAK_IF(!CCLayer::init());
 	this->setTouchEnabled(true);
+
+	// Add huds.
 	this->addChild(GameHudLayer::create());
+
+	// Add hero.
+	//this->addChild(GameObjectTypesLoader::sharedInstance()->createArmatureByID(
+	//	GameDirector::sharedInstance()->getCurrentHero().c_str()));
+	auto director = GameDirector::sharedInstance();
+	CCLog("Current Game State is '%d'", director->getGameState());
 
 	INIT_TRUE
 	INIT_END

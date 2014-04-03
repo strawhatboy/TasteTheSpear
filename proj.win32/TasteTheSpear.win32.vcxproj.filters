@@ -284,6 +284,9 @@
     <ClInclude Include="GameScene.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="GameTextureBatchCenter.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -437,6 +440,9 @@
       <Filter>source\institution</Filter>
     </ClCompile>
     <ClCompile Include="GameScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTextureBatchCenter.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

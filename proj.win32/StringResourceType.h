@@ -11,7 +11,7 @@ class StringResourceType :
 public:
 	//StringResourceType(void);
 	~StringResourceType(void);
-	virtual const char* getObjectType(void) const
+	virtual string getObjectType(void) const
 	{
 		return STR_STRINGRESOURCE;
 	}

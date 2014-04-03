@@ -20,7 +20,8 @@
 		<!-- so here the texture should be a referenced to the new type texture we called armature -->
 			<key>texture</key>
 			<string>T001</string>
-			
+			<key>isarmature</key>
+			<string>1</string>
 			<!-- fightingunit -->
 			<key>life</key>
 			<string>10</string>

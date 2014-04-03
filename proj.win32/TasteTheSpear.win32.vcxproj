@@ -164,6 +164,7 @@
     <ClInclude Include="GameObjectTypesLoader.h" />
     <ClInclude Include="GameObject_Runtime.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="GameTextureBatchCenter.h" />
     <ClInclude Include="HeroSelectLayer.h" />
     <ClInclude Include="HeroSelectScene.h" />
     <ClInclude Include="HeroType.h" />
@@ -218,6 +219,7 @@
     <ClCompile Include="GameObjectTypesLoader.cpp" />
     <ClCompile Include="GameObject_Runtime.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="GameTextureBatchCenter.cpp" />
     <ClCompile Include="HeroSelectLayer.cpp" />
     <ClCompile Include="HeroSelectScene.cpp" />
     <ClCompile Include="HeroType.cpp" />

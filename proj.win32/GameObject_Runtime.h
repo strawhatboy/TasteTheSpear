@@ -7,12 +7,10 @@
 #include "cocos2d.h"
 
 class GameObject_Runtime 
-	: public CCSprite
+	: public CCNode
 {
 	CC_SYNTHESIZE(CCDictionary*, m_pAdditionalProperties, AdditionalProperties);
-
-protected:
-	GameObjectType* m_GameObjectType;
+	CC_SYNTHESIZE_READONLY(GameObjectType*, m_GameObjectType, GameObjectType);
 
 public:
 	GameObject_Runtime(void);

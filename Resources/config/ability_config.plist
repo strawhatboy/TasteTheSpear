@@ -13,14 +13,12 @@
 			<key>description</key>
 			<string>最强之矛能够对敌人造成额外的伤害。额外伤害计算为[战机等级 + 1]。</string>
 			<key>data</key>
-			<array>
-				<dict>
-					<key>origin</key>
-					<string>2</string>
-					<key>delta</key>
-					<string>1</string>
-				</dict>
-			</array>
+			<dict>
+				<key>origin</key>
+				<string>2</string>
+				<key>delta</key>
+				<string>1</string>
+			</dict>
 			<key>texture</key>
 			<string></string>
 		</dict>

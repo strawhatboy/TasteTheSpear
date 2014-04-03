@@ -30,25 +30,27 @@ bool LevelSelectLayer::init(const char* districtTypeID)
 			CCLayer* layer = CCLayer::create();
 			layer->setTag(count++);
 			auto armature = typesLoader->createArmatureByID(levelType->getTypeID().c_str());
-			
-			armature->setPosition(ccpSub(ccpSub(designResolutionSize, ccpMult(armature->getContentSize(), 0.5f)), ccp(0, 100)));
-			layer->addChild(armature);
+			if(armature != NULL)
+			{
+				armature->setPosition(ccpSub(ccpSub(designResolutionSize, ccpMult(armature->getContentSize(), 0.5f)), ccp(0, 100)));
+				layer->addChild(armature);
 
-			// Add Name Label
-			CCLabelTTF* label = CCLabelTTF::create(levelType->getName().c_str(), "Segoe UI", 50.f,
-				armature->getContentSize(), kCCTextAlignmentLeft, kCCVerticalTextAlignmentBottom);
-			label->setPosition(ccpAdd(armature->getPosition(), ccp(20, 20)));
-			layer->addChild(label);
+				// Add Name Label
+				CCLabelTTF* label = CCLabelTTF::create(levelType->getName().c_str(), "Segoe UI", 50.f,
+					armature->getContentSize(), kCCTextAlignmentLeft, kCCVerticalTextAlignmentBottom);
+				label->setPosition(ccpAdd(armature->getPosition(), ccp(20, 20)));
+				layer->addChild(label);
 
-			// Add Description Label
-			CCLabelTTF* labelD = CCLabelTTF::create(levelType->getDescription().c_str(), "Segoe UI", 40.f,
-				CCSizeMake(designResolutionSize.width - 40, designResolutionSize.height - armature->getContentSize().height -140),
-				kCCTextAlignmentLeft, kCCVerticalTextAlignmentTop);
-			labelD->setPosition(ccpAdd(ccp(20, 20), ccpMult(labelD->getContentSize(), 0.5f)));
-			layer->addChild(labelD);
+				// Add Description Label
+				CCLabelTTF* labelD = CCLabelTTF::create(levelType->getDescription().c_str(), "Segoe UI", 40.f,
+					CCSizeMake(designResolutionSize.width - 40, designResolutionSize.height - armature->getContentSize().height -140),
+					kCCTextAlignmentLeft, kCCVerticalTextAlignmentTop);
+				labelD->setPosition(ccpAdd(ccp(20, 20), ccpMult(labelD->getContentSize(), 0.5f)));
+				layer->addChild(labelD);
 					
-			levelsIDs->push_back(levelType->getTypeID());
-			arrLayer->addObject(layer);
+				levelsIDs->push_back(levelType->getTypeID());
+				arrLayer->addObject(layer);
+			}
 		});
 
 		// adjust the screen

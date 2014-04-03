@@ -35,7 +35,7 @@ void MyLayerOpacity::setOpacityModifyRGB(bool bValue)
 		CCRGBAProtocol* protocol = dynamic_cast<CCRGBAProtocol*>(node);
 		if (protocol)
 		{
-			protocol->setOpacity(bValue | protocol->isOpacityModifyRGB());
+			protocol->setOpacityModifyRGB(bValue | protocol->isOpacityModifyRGB());
 		}
 	}
 }

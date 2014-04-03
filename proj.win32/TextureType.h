@@ -16,7 +16,7 @@ class TextureType :
 public:
 	//TextureType(CCDictionary* dict);
 	~TextureType(void);
-	virtual const char* getObjectType(void) const
+	virtual string getObjectType(void) const
 	{
 		return STR_TEXTURE;
 	}

@@ -52,7 +52,7 @@ void GameHudLayer::initHeroHud()
 	// protrait/avatar
 	auto heroHud = CCSprite::createWithSpriteFrameName("HeroHud.png");
 	heroHud->setPosition(ccpMult(heroHud->getContentSize(), .5f));
-	this->addChild(heroHud, 0, 1000);
+	this->addChild(heroHud, 0, TAG_HERO_HUD);
 
 	auto heroID = GameDirector::sharedInstance()->getCurrentHero();
 
@@ -60,7 +60,7 @@ void GameHudLayer::initHeroHud()
 	auto armature = GameObjectTypesLoader::sharedInstance()->createArmatureByID(heroID.c_str());
 	armature->setScaleX(60.f / armature->getContentSize().width);
 	armature->setScaleY(60.f / armature->getContentSize().height);
-
+	
 	armature->setPosition(44.f, 44.f);
 	this->addChild(armature);
 }
@@ -69,10 +69,12 @@ void GameHudLayer::initEnemyHud()
 {
 	// protrait/avatar
 	auto enemyHud = CCSprite::createWithSpriteFrameName("EnemyHud.png");
+	auto texture = enemyHud->getTexture();
+	
 	auto halfHudSize = ccpMult(enemyHud->getContentSize(), .5f);
 	auto visibleSize = CCVisibleSize;
 	enemyHud->setPosition(ccp(halfHudSize.x, visibleSize.height - halfHudSize.y));
-	this->addChild(enemyHud, 0, 1001);
+	this->addChild(enemyHud, 0, TAG_ENEMY_HUD);
 }
 
 void GameHudLayer::initItemsSpellHud()

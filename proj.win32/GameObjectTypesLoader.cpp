@@ -16,6 +16,7 @@ GameObjectTypesLoader::GameObjectTypesLoader(void)
 	INIT_POINTER(this->m_Armatures);
 	INIT_POINTER(this->m_StringResources);
 	INIT_POINTER(this->m_Abilities);
+	INIT_POINTER(this->m_Frames);
 
 	__CREATE_OBJTYPE_ARRAYS(this->m_HeroTypes);
 	__CREATE_OBJTYPE_ARRAYS(this->m_FightingUnitTypes);
@@ -25,6 +26,7 @@ GameObjectTypesLoader::GameObjectTypesLoader(void)
 	__CREATE_OBJTYPE_ARRAYS(this->m_Armatures);
 	__CREATE_OBJTYPE_ARRAYS(this->m_StringResources);
 	__CREATE_OBJTYPE_ARRAYS(this->m_Abilities);
+	__CREATE_OBJTYPE_ARRAYS(this->m_Frames);
 }
 
 GameObjectTypesLoader::~GameObjectTypesLoader(void)
@@ -42,6 +44,7 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 	this->m_Armatures->release();
 	this->m_StringResources->release();
 	this->m_Abilities->release();
+	this->m_Frames->release();
 }
 
 // Macros are bad !!!
@@ -199,7 +202,7 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 				//	}
 				//}
 				string name;
-				_type->loadArmature(target, selector);
+				_type->loadTexture(target, selector);
 			}
 		}
 		CCLog("armatures' count: %d", this->m_Armatures->count());
@@ -312,22 +315,75 @@ GameObjectTypesLoader::~GameObjectTypesLoader(void)
 		return aType;
 	}
 
+	GameObjectType* GameObjectTypesLoader::getGameObjectTypeByID(const char* pszID)
+	{
+		GameObjectType* pRet = NULL;
+		if ((pRet = getHeroTypeByID(pszID)) != NULL)
+		{
+			return pRet;
+		}
+
+		if ((pRet = getFightingUnitTypeByID(pszID)) != NULL)
+		{
+			return pRet;
+		}
+
+		if ((pRet = getMissileTypeByID(pszID)) != NULL)
+		{
+			return pRet;
+		}
+		
+		if ((pRet = getDistrictTypeByID(pszID)) != NULL)
+		{
+			return pRet;
+		}
+
+		if ((pRet = getTextureTypeByID(pszID)) != NULL)
+		{
+			return pRet;
+		}
+
+		if ((pRet = getStringResourceTypeByID(pszID)) != NULL)
+		{
+			return pRet;
+		}
+
+		if ((pRet = getAbilityTypeByID(pszID)) != NULL)
+		{
+			return pRet;
+		}
+
+		return pRet;
+	}
 
 
-
-const char* GameObjectTypesLoader::getArmatureNameByID(const char* pszID)
+string GameObjectTypesLoader::getArmatureNameByID(const char* pszID)
 {
-	return this->m_Armatures->valueForKey(string(pszID))->getCString();
+	return string(this->m_Armatures->valueForKey(string(pszID))->getCString());
+}
+
+string GameObjectTypesLoader::getSpriteFrameNameByID(const char* pszID)
+{
+	return string(this->m_Frames->valueForKey(string(pszID))->getCString());
 }
 
 
 CCArmature* GameObjectTypesLoader::createArmatureByID(const char* pszID)
 {
 	auto armatureName = this->getArmatureNameByID(pszID);
-	if (strlen(armatureName) == 0)
+	if (armatureName.length() == 0)
 		return NULL;
-	CCArmature* armature = CCArmature::create(armatureName);
+	CCArmature* armature = CCArmature::create(armatureName.c_str());
 	return armature;
+}
+
+CCSprite* GameObjectTypesLoader::createSpriteByID(const char* pszID)
+{	
+	auto spriteFrameName = this->getSpriteFrameNameByID(pszID);
+	if (spriteFrameName.length() == 0)
+		return NULL;
+	CCSprite* sprite = CCSprite::createWithSpriteFrameName(spriteFrameName.c_str());
+	return sprite;
 }
 
 void GameObjectTypesLoader::setArmaturePairs(CCObject* obj, const string& key)
@@ -336,7 +392,11 @@ void GameObjectTypesLoader::setArmaturePairs(CCObject* obj, const string& key)
 	CCLog("Armature Pair set: %s : %s", key.c_str(), ((CCString*)obj)->getCString());
 }
 
-
+void GameObjectTypesLoader::setFrameParis(CCObject* obj, const string& key)
+{
+	this->m_Frames->setObject(obj, key);
+	CCLog("Frame Pair set: %s : %s", key.c_str(), ((CCString*)obj)->getCString());
+}
 
 int GameObjectTypesLoader::loadArmaturesFromTextureConfig()
 {

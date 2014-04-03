@@ -26,9 +26,11 @@ class GameObjectTypesLoader
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_MissileTypes, MissileTypes);
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_DistrictTypes, DistrictTypes);
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_TextureTypes, TextureTypes);
-	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Armatures, Armatures);
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_StringResources, StringResources);
 	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Abilities, Abilities);
+
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Armatures, Armatures);
+	CC_SYNTHESIZE_READONLY(CCDictionary*, m_Frames, Frames);
 
 private:
 
@@ -72,17 +74,22 @@ public:
 	TextureType* getTextureTypeByID(const char* pszID);
 	StringResourceType* getStringResourceTypeByID(const char* pszID);
 	AbilityType* getAbilityTypeByID(const char* pszID);
+	GameObjectType* getGameObjectTypeByID(const char* pszID);
 
-	const char* getArmatureNameByID(const char* pszID);
+	string getArmatureNameByID(const char* pszID);
+	string getSpriteFrameNameByID(const char* pszID); 
 
 	// create an armature type object by TypeID
 	CCArmature* createArmatureByID(const char* pszID);
+
+	CCSprite* createSpriteByID(const char* pszID);
 
 	// return count that loaded for the async method.
 	int loadArmatures();
 	int loadArmaturesAsync(CCObject* target, SEL_SCHEDULE selector);
 
 	void setArmaturePairs(CCObject* obj, const string& key);
+	void setFrameParis(CCObject* obj, const string& key);
 	
 	CC_SHARED_CREATE_FUNC(GameObjectTypesLoader);
 };

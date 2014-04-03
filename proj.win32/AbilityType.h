@@ -14,7 +14,7 @@ public:
 	float getAbilityData(const char* key);
 
 	// returns HERO, UNIT, MISSILE, LEVEL, DISTRICT
-	virtual const char* getObjectType(void) const
+	virtual string getObjectType(void) const
 	{
 		return STR_ABILITY;
 	}

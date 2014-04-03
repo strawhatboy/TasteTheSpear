@@ -7,6 +7,14 @@
 
 USING_NS_CC;
 
+#define TAG_HERO_HUD		10000
+#define TAG_ENEMY_HUD		10001
+#define TAG_SPELLS_HUD		10002
+#define TAG_ITEMS_HUD		10003
+#define TAG_SCORE_HUD		10004
+//#define TAG_HERO_HP_HUD		10005
+//#define TAG_HERO_MP_HUD		10006
+//#define TAG_ENEMY_HP_HUD	10007
 
 class GameHudLayer :
 	public CCLayer

@@ -12,14 +12,14 @@ class DistrictType :
 public:
 	~DistrictType(void);
 	// returns HERO, UNIT, MISSILE, LEVEL, DISTRICT
-	virtual const char* getObjectType(void) const
+	virtual string getObjectType(void) const
 	{
 		return STR_DISTRICT;
 	}
 
 	CREATE_WITH_DICT(DistrictType);
 
-	virtual bool loadArmature(
+	virtual bool loadTexture(
 		CCObject* target = NULL,
 		SEL_SCHEDULE selector = NULL) const;
 };

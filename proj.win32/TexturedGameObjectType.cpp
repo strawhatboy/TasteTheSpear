@@ -4,6 +4,7 @@
 TexturedGameObjectType::TexturedGameObjectType(CCDictionary* dict) : GameObjectType(dict)
 {
 	this->m_pszTexture = dict->valueForKey(STR_GAMEOBJECT_TEXTURE)->getCString();
+	this->m_bIsArmature = dict->valueForKey(STR_GAMEOBJECT_IS_ARMATURE)->boolValue();
 }
 
 
@@ -11,7 +12,7 @@ TexturedGameObjectType::~TexturedGameObjectType(void)
 {
 }
 
-bool TexturedGameObjectType::loadArmature(
+bool TexturedGameObjectType::loadTexture(
 		CCObject* target,
 		SEL_SCHEDULE selector) const
 {
@@ -19,7 +20,9 @@ bool TexturedGameObjectType::loadArmature(
 	{
 		auto id = this->getTypeID();
 		auto loader = GameObjectTypesLoader::sharedInstance();
-		if (strlen(loader->getArmatureNameByID(id.c_str())) == 0)
+		if (this->m_bIsArmature)
+		{
+		if (loader->getArmatureNameByID(id.c_str()).length() == 0)
 				{//There's no such armature available in the dict, so add it. otherwise skip it.
 
 					// we won't add the armature to cache here but when looping the texture list.
@@ -53,6 +56,20 @@ bool TexturedGameObjectType::loadArmature(
 					}
 					loader->setArmaturePairs(CCString::create(name), id);
 				}
+		}
+		else
+		{
+			if (loader->getSpriteFrameNameByID(id.c_str()).length() == 0)
+			{// no sprite frame available
+				if (this->m_pszTexture.length() == 0)
+				{
+					loader->setFrameParis(CCString::create("logo.png"), id);
+				}
+				else
+					loader->setFrameParis(CCString::create(this->m_pszTexture), id);
+			}
+		
+		}
 	}while(0);
 
 	return true;

@@ -139,6 +139,20 @@
 			<key>ExportJson</key>
 			<string>UNKNOWN_TEXTURE.ExportJson</string>
 		</dict>
+		<dict>
+			<key>typeid</key>
+			<string>T007</string>
+			<key>name</key>
+			<string>UI_STAFF</string>
+			<key>description</key>
+			<string>used in UI.</string>
+			<key>ExportPNG</key>
+			<string>UI_STAFF0.png</string>
+			<key>ExportPlist</key>
+			<string>UI_STAFF0.plist</string>
+			<key>ExportJson</key>
+			<string>UI_STAFF.ExportJson</string>
+		</dict>
 	</array>
 </dict>
 </plist>

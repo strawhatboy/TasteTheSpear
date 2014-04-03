@@ -31,7 +31,7 @@ public:
 	~FightingUnitType(void);
 	
 	// returns HERO, UNIT, MISSILE, BOSS
-	virtual const char* getObjectType(void) const
+	virtual string getObjectType(void) const
 	{
 		return STR_FIGHTINGUNIT;
 	}

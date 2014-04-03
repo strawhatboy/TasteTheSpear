@@ -71,6 +71,7 @@ void HeroSelectLayer::heroSelected(CCObject* obj)
 	int index = layer->getTag();
 	auto heroID = this->m_HerosIDs->at(index);
 	GameDirector::sharedInstance()->setCurrentHero(heroID);
+	GameDirector::sharedInstance()->changeState(GAMING);
 	// move to game scene.
 	auto gameScene = GameScene::create();
 	CCDirector::sharedDirector()->replaceScene(gameScene);
